@@ -1,0 +1,51 @@
+@media screen and (max-width: 1024px) {
+  #photographers {
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 45px;
+  }
+  header {
+    height: 150px;
+    grid-template-areas:
+      "logo title"
+      "nav-tags nav-tags";
+    grid-template-columns: 1fr 1fr;
+  }
+  .home-nav #tags {
+    padding: 0;
+  }
+  .main .main-title {
+    top: 40px;
+  }
+}
+
+@media screen and (max-width: 810px) {
+  #photographers {
+    grid-template-columns: 1fr;
+    grid-gap: 20px;
+  }
+  .home-nav {
+    padding: 0;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  header .logo-container {
+    width: 200px;
+    height: 60px;
+  }
+  .main .main-title {
+    font-size: 25px;
+  }
+}
+
+@media screen and (max-width: 490px) {
+  header .logo-container {
+    width: 150px;
+    height: 50px;
+  }
+  .main .main-title {
+    top: 50px;
+    font-size: 15px;
+    right: 10px;
+  }
+}
