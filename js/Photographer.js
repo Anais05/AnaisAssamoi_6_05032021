@@ -10,21 +10,58 @@ class Photographer {
         this.price = data.price;
         this.portrait = data.portrait;
         this.background = data.background
+        this.medias = [];
     }
 
-    renderAllCard() {
-        return `<article id="photographer-${this.id}" class="card">
-            <a href="/pages/photographer.html?id=${this.id}" aria-label="visiter la page de ${this.name}">
-                <img class="card-image" src="../img/${this.id}/${this.background}" alt="">
-                <h3 class="card-name">${this.name}</h3>
-            </a>
-            <p class="card-location">${this.city}, ${this.country}</p>
-            <p class="card-tagline">${this.tagline}</p>
-            <p class="card-price">${this.price}€/jour</p>
-             <ul class="card-taglist">
+    renderCard() {
+        return `
+            <article id="photographer-${this.id}" class="card">
+                <a href="/photographer.html?id=${this.id}" aria-label="visiter la page de ${this.name}">
+                    <img class="card-image" src="../img/${this.id}/${this.background}" alt="">
+                    <h3 class="card-name">${this.name}</h3>
+                </a>
+                <p class="card-location">${this.city}, ${this.country}</p>
+                <p class="card-tagline">${this.tagline}</p>
+                <p class="card-price">${this.price}€/jour</p>
+                <ul class="card-taglist">
                 ${this.tags.map(tag =>`<li class="filter">#${tag}</li></li>`).join('')}
-             </ul>
-        </article>`;
+                </ul>
+            </article>`;
+    }
+
+    renderProfile() {
+        return `
+            <article id="profile-info" class="card">
+                <h3 class="card-name">${this.name}</h3>
+                <p class="card-location">${this.city}, ${this.country}</p>
+                <p class="card-tagline">${this.tagline}</p>
+                <div class="card-taglist" id="tags">
+                    ${this.tags.map(tag =>`<a class="filter">#${tag}</li></a>`).join('')}
+                </div>
+            </article> 
+            <button class="contact-btn" aria-label="Formulaire de contact de ${this.name}">Contactez moi</button>
+            <img class="profile-image" src="../img/${this.id}/${this.background}" alt="picture ${this.name}">`
+    }
+
+    renderPortfolio() {
+        let html = '';
+        this.medias.forEach((media) => {
+            html += media.render();
+        })
+        return html;
+    }
+
+    displayPage() {
+        document.getElementById('profile').innerHTML += this.renderProfile();
+        document.getElementById('galery').innerHTML += this.renderPortfolio();
+    }
+
+    getAllMedias(medias) {
+        medias.forEach((media) => {
+           if (media.photographerId == this.id) {
+               this.medias.push(new Media(media))
+           }
+        });
     }
 
 }

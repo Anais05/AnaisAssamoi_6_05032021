@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="description" content="Site web de photographes freelances.">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="shortcut icon" type="image/x-icon" href="">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="../css/style.css">
+
+        <title>Photographer</title>
+    </head>
+    <body>
+        <header>
+            <a href="/" aria-label="page d'accueil" class="logo-container">
+                <img class="profile-logo" src="../img/logo.png" alt="FishEye logo">
+            </a>
+        </header>
+        <main class="main">
+            <section id="photographer">
+                <div id="profile"></div>
+                <div id="portfolio">
+                    <div class="sort">
+                        <p class="sort-label">Trier par</p>
+                        <div class="sort-list" role="menu" aria-expanded="false">
+                            <button class="sort-criteria" aria-label="Actuellement trié par popularité" id="popularity" onclick="Medialist.sortPortfolioBy('popularity')">Popularité
+                                <img class="sort-icon" src="./img/Vector.png" alt="icone menu déroulant" />
+                            </button>
+                            <div class="dropdown-content">
+                                <button class="sort-criteria" aria-label="Trier par date" id="date" onclick="Medialist.sortPortfolioBy('date')">Date</button>
+                                <button class="sort-criteria" aria-label="Trier par titre" id="title" onclick="Medialist.sortPortfolioBy('title')">Titre</button>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <div id="galery"></div>
+                </div>
+            </section>
+            <article id="moreInfo"></article>
+        </main>
+        <script src="./js/utils.js"></script>
+        <script src="./js/Photographer.js"></script>
+        <script src="./js/Media.js"></script>
+        <script src="./js/List.js"></script>
+        <script src="./js/MediaList.js"></script>
+        <script src="./js/profile.js"></script>
+    </body>
+</html>

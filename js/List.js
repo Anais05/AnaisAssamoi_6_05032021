@@ -28,7 +28,7 @@ class List
         let html = '';
         photographers.forEach((photographer) => 
         {
-            html += photographer.renderAllCard()
+            html += photographer.renderCard()
         })
         document.getElementById('photographers').innerHTML= html;
     }

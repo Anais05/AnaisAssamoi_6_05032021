@@ -78,4 +78,133 @@ body {
   }
 }
 
+// photographer profile
+
+#profile {
+  display: grid;
+  grid-template-areas: "profile contact-btn profile-image";
+  grid-template-columns: 1fr 1fr 1fr;
+  background-color: #fafafa;
+  border-radius: 5px;
+  width: 95%;
+  margin: auto;
+  .card {
+    grid-area: profile;
+    width: 150%;
+    align-items: flex-start;
+    h3 {
+      font-size: 45px;
+    }
+    p {
+      margin: 15px 5px;
+    }
+  }
+
+  .contact-btn {
+    grid-area: contact-btn;
+    background-color: $primary;
+    font-weight: bold;
+    color: #fff;
+    border-radius: 5px;
+    height: 25%;
+    width: 50%;
+    margin-left: 55px;
+    margin-top: 40px;
+  }
+  .profile-image {
+    grid-area: profile-image;
+    overflow: hidden;
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+    margin: auto;
+  }
+}
+
+#portfolio {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.sort {
+  display: flex;
+  flex-direction: row;
+  margin: 50px 0;
+  .sort-label {
+    font-size: 18px;
+    font-weight: bold;
+    margin-right: 35px;
+  }
+  .sort-list {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: repeat(3, auto);
+    border-radius: 5px;
+    border: solid 1px $primary;
+  }
+  .sort-criteria {
+    border: none;
+    background-color: $primary;
+    padding: 20px;
+    color: #fff;
+    width: 170px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    position: relative;
+  }
+}
+
+.dropdown-content button::before {
+  content: "";
+  height: 2px;
+  width: 85%;
+  background-color: white;
+  position: absolute;
+  top: 0;
+  left: 13px;
+}
+
+#galery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 35px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  .media-card {
+    width: 100%;
+  }
+  img,
+  video {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+  }
+  .media-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    color: $primary;
+  }
+  .prices {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  .liker {
+    background-color: transparent;
+    border: none;
+    color: $primary;
+    margin-left: 10px;
+    font-size: 20px;
+    cursor: pointer;
+  }
+}
+
 @import "responsive.scss";
