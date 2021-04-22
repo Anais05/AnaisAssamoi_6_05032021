@@ -1,18 +1,30 @@
-fetchData().then((response) => {
-    let photographer = getPhotographer(response);
-    photographer.getAllMedias(response.media)
-    photographer.displayPage();
+fetchData().then((response) => 
+{
+    let photographer = new Photographer(getPhotographer(response.photographers));
+    photographer.displayProfile();
 
+    let medias = getPhotographerMedias(response);
+    let medialist = new MediaList();
+    medialist.init(medias);
+
+    let modal = new Modal();
+    modal.listenForOpening();
 })
 
-function getPhotographer(response) {
-    return new Photographer(response.photographers.filter((photographer) => 
-    {
-        return photographer.id == getId();
-    })[0]);
+function getPhotographer(photographers) 
+{
+    return photographers.filter((photographer) => photographer.id == getId())[0];
 }
 
-function getId() {
+function getPhotographerMedias(response) 
+{
+    return response.media.filter((medium) =>  medium.photographerId == getId());
+}
+
+
+function getId() 
+{
     const urlParams = new URLSearchParams(window.location.search);
     return urlParams.get('id');
 }
+

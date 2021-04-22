@@ -1,5 +1,6 @@
 @media screen and (max-width: 1024px) {
-  #photographers {
+  #photographers,
+  #galery {
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 45px;
   }
@@ -19,12 +20,18 @@
 }
 
 @media screen and (max-width: 810px) {
-  #photographers {
+  #photographers,
+  #galery {
     grid-template-columns: 1fr;
     grid-gap: 20px;
   }
   .home-nav {
     padding: 0;
+  }
+
+  .contact-btn,
+  .sort {
+    display: none;
   }
 }
 
@@ -35,6 +42,10 @@
   }
   .main .main-title {
     font-size: 25px;
+  }
+  #profile .profile-image {
+    width: 130px;
+    height: 130px;
   }
 }
 
@@ -47,5 +58,19 @@
     top: 50px;
     font-size: 15px;
     right: 10px;
+  }
+  #photographers {
+    grid-template-columns: 100%;
+  }
+  .header-tags .filter,
+  .card-taglist .filter {
+    font-size: 12px;
+  }
+  #galery {
+    grid-template-columns: 100%;
+    img,
+    video {
+      border-radius: 5px;
+    }
   }
 }

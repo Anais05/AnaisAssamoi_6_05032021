@@ -13,7 +13,8 @@ class Photographer {
         this.medias = [];
     }
 
-    renderCard() {
+    renderCard() 
+    {
         return `
             <article id="photographer-${this.id}" class="card">
                 <a href="/photographer.html?id=${this.id}" aria-label="visiter la page de ${this.name}">
@@ -26,10 +27,12 @@ class Photographer {
                 <ul class="card-taglist">
                 ${this.tags.map(tag =>`<li class="filter">#${tag}</li></li>`).join('')}
                 </ul>
-            </article>`;
+            </article>
+        `;
     }
 
-    renderProfile() {
+    renderProfile() 
+    {
         return `
             <article id="profile-info" class="card">
                 <h3 class="card-name">${this.name}</h3>
@@ -40,28 +43,13 @@ class Photographer {
                 </div>
             </article> 
             <button class="contact-btn" aria-label="Formulaire de contact de ${this.name}">Contactez moi</button>
-            <img class="profile-image" src="../img/${this.id}/${this.background}" alt="picture ${this.name}">`
+            <img class="profile-image" src="../img/${this.id}/${this.background}" alt="picture ${this.name}">
+        `
     }
 
-    renderPortfolio() {
-        let html = '';
-        this.medias.forEach((media) => {
-            html += media.render();
-        })
-        return html;
-    }
-
-    displayPage() {
+    displayProfile() 
+    {
         document.getElementById('profile').innerHTML += this.renderProfile();
-        document.getElementById('galery').innerHTML += this.renderPortfolio();
-    }
-
-    getAllMedias(medias) {
-        medias.forEach((media) => {
-           if (media.photographerId == this.id) {
-               this.medias.push(new Media(media))
-           }
-        });
     }
 
 }
