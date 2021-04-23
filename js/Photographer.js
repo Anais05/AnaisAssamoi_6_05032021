@@ -47,6 +47,13 @@ class Photographer {
         `
     }
 
+    renderModalTitle()
+    {
+        return `
+            <h2 id="title">Contactez-moi <br> ${this.name}</h2>
+        `
+    }
+
     displayProfile() 
     {
         document.getElementById('profile').innerHTML += this.renderProfile();

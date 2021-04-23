@@ -216,33 +216,55 @@ header .logo-container img {
 .bground .content {
   margin: 70px auto;
   width: 100%;
-  max-width: 500px;
+  max-width: 600px;
   animation-name: modalopen;
-  animation-duration: var(--modal-duration);
+  animation-duration: 1s;
   background: #db8876;
   border-radius: 10px;
   overflow: hidden;
   position: relative;
-  color: #312e2e;
   padding-top: 10px;
 }
 .bground .modal-body {
-  padding: 15px 8%;
-  margin: 15px auto;
+  padding: 25px;
 }
-.bground input {
+
+#form {
+  margin-left: 20px;
+}
+#form .formData {
+  margin-bottom: 15px;
+}
+#form input,
+#form textarea {
   padding: 8px;
-  border: 0.8px solid #ccc;
+  border: none;
   outline: none;
 }
-.bground .text-control {
-  margin: 0;
-  padding: 8px;
-  width: 100%;
+#form label {
+  color: #312e2e;
+  font-size: 20px;
+  font-weight: bold;
+}
+#form .text-control {
+  margin: auto;
+  padding: 12px;
+  width: 90%;
   border-radius: 5px;
   font-size: 20px;
 }
-.bground .close {
+#form .btn-submit {
+  border-radius: 5px;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #901c1c;
+  padding: 12px 82px;
+  cursor: pointer;
+  border: transparent;
+  padding: 15px;
+}
+
+.close {
   position: absolute;
   right: 15px;
   top: 15px;
@@ -253,22 +275,48 @@ header .logo-container img {
   background-color: transparent;
   border: none;
 }
-.bground .close img {
+.close img {
   width: 100%;
   height: 100%;
 }
-.bground .btn-submit {
-  border-radius: 5px;
-  font-size: 1rem;
-  color: #fff;
-  background-color: #901c1c;
-  padding: 12px 82px;
-  cursor: pointer;
-  border: transparent;
-  margin-top: 25px;
-  padding: 15px;
+
+/* Modal success */
+#success {
+  display: none;
 }
 
+.success-text {
+  margin: 20px;
+  text-align: center;
+  font-size: 25px;
+  font-weight: bold;
+  color: #312e2e;
+}
+
+.formData[data-error]::after {
+  content: attr(data-error);
+  font-size: 10;
+  color: #901c1c;
+  display: block;
+  margin-top: 10px;
+  text-align: right;
+  font-weight: bold;
+  opacity: 0;
+}
+
+.formData[data-error-visible=true]::after {
+  opacity: 1;
+}
+
+@keyframes modalopen {
+  from {
+    opacity: 0;
+    transform: translateY(-150px);
+  }
+  to {
+    opacity: 1;
+  }
+}
 body {
   font-family: "DMSans";
   width: 95%;

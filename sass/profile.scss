@@ -150,50 +150,47 @@
   .content {
     margin: 70px auto;
     width: 100%;
-    max-width: 500px;
+    max-width: 600px;
     animation-name: modalopen;
-    animation-duration: var(--modal-duration);
+    animation-duration: 1s;
     background: $tertiary;
     border-radius: 10px;
     overflow: hidden;
     position: relative;
-    color: $dark-color;
     padding-top: 10px;
   }
 
   .modal-body {
-    padding: 15px 8%;
-    margin: 15px auto;
+    padding: 25px;
+  }
+}
+
+#form {
+  margin-left: 20px;
+
+  .formData {
+    margin-bottom: 15px;
   }
 
-  input {
+  input,
+  textarea {
     padding: 8px;
-    border: 0.8px solid #ccc;
+    border: none;
     outline: none;
   }
 
-  .text-control {
-    margin: 0;
-    padding: 8px;
-    width: 100%;
-    border-radius: 5px;
+  label {
+    color: $dark-color;
     font-size: 20px;
+    font-weight: bold;
   }
 
-  .close {
-    position: absolute;
-    right: 15px;
-    top: 15px;
-    width: 32px;
-    height: 25px;
-    opacity: 1;
-    cursor: pointer;
-    background-color: transparent;
-    border: none;
-    img {
-      width: 100%;
-      height: 100%;
-    }
+  .text-control {
+    margin: auto;
+    padding: 12px;
+    width: 90%;
+    border-radius: 5px;
+    font-size: 20px;
   }
 
   .btn-submit {
@@ -204,7 +201,62 @@
     padding: 12px 82px;
     cursor: pointer;
     border: transparent;
-    margin-top: 25px;
     padding: 15px;
+  }
+}
+
+.close {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  width: 32px;
+  height: 25px;
+  opacity: 1;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+/* Modal success */
+
+#success {
+  display: none;
+}
+
+.success-text {
+  margin: 20px;
+  text-align: center;
+  font-size: 25px;
+  font-weight: bold;
+  color: $dark-color;
+}
+
+.formData[data-error]::after {
+  content: attr(data-error);
+  font-size: 10;
+  color: $primary;
+  display: block;
+  margin-top: 10px;
+  text-align: right;
+  font-weight: bold;
+  opacity: 0;
+}
+.formData[data-error-visible="true"]::after {
+  opacity: 1;
+}
+
+// animation modal
+
+@keyframes modalopen {
+  from {
+    opacity: 0;
+    transform: translateY(-150px);
+  }
+  to {
+    opacity: 1;
   }
 }

@@ -8,7 +8,7 @@ fetchData().then((response) =>
     medialist.init(medias);
 
     let modal = new Modal();
-    modal.listenForOpening();
+    modal.init();
 })
 
 function getPhotographer(photographers) 
