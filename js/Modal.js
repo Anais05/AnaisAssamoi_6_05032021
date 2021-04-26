@@ -11,6 +11,7 @@ class Modal {
         this.listenForEscapeKey();
         this.listenForClickOut();
         this.listenForSubmit();
+        this. listenForKeyup();
         this.validate();
     }
 
@@ -49,17 +50,30 @@ class Modal {
         })
     }
 
-    // listenForEscapeKey() 
-    // {
-    //      escapeHandler = function (e) {
-    //       if (e.keyCode === 27) {
-    //         this.close();
-    //       }
-    //     };
-    //     document.addEventListener("keydown", this.escapeHandler);
-    // }
+    listenForKeyup() 
+    {
+        let InputToValidateKeyup = [
+          {id : "first", check : this.isNameValid},
+          {id : "last", check : this.isNameValid},
+          {id : "email", check : this.isMailValid},
+          {id : "message", check : this.isMessageValid},
+        ];
+        InputToValidateKeyup.forEach(obj => 
+        {
+          document.getElementById(obj.id).addEventListener("keyup", (e) => {   
+            let element = document.getElementById(obj.id);
+            let value = element.value;
+            if (!obj.check(value)) {
+              this.showError(element);
+            } else {
+              this.hideError(element);
+            }
+          })
+        })
+      }
 
-    isNameValid(name) {
+    isNameValid(name) 
+    {
         let regex = /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/;
         if (name.length < 2 || name === ""|| !regex.test(name)) {
           return false;
@@ -67,7 +81,8 @@ class Modal {
         return true;
     }
 
-    isMailValid(mail) {
+    isMailValid(mail) 
+    {
         let regex = /^\S+@\S+\.\S+$/;
         if (!regex.test(mail) || mail == "") {
           return false;
@@ -75,36 +90,34 @@ class Modal {
         return true;
     }
 
-    isMessageValid(message) {
+    isMessageValid(message) 
+    {
         if (message.length < 20 ) {
           return false;
         }
         return true;
     }
 
-    validate () {
+    validate () 
+    {
         const firstName = document.getElementById("first");
         const lastName = document.getElementById("last");
         const email = document.getElementById("email");
         const message = document.getElementById("message");
 
         if (!this.isNameValid(firstName.value)){
-            this.showError(firstName);
             return false
         } 
       
         if (!this.isNameValid(lastName.value)) {
-            this.showError(lastName);
             return false
         } 
       
         if (!this.isMailValid(email.value)){
-            this.showError(email);
             return false
         } 
       
         if (!this.isMessageValid(message.value)){
-            this.showError(message);
             return false
         } 
         
@@ -117,7 +130,14 @@ class Modal {
         parent.setAttribute('data-error-visible', true);
     }
 
-    listenForSubmit() {
+    hideError(element) 
+    {
+        let parent = element.closest('div');
+        parent.setAttribute('data-error-visible', false);
+    }
+
+    listenForSubmit() 
+    {
         document.getElementById("form").addEventListener("submit", (e) => {
 
             if (this.validate()) {
