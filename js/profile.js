@@ -9,6 +9,9 @@ fetchData().then((response) =>
 
     let modal = new Modal();
     modal.init();
+
+    let slider = new Slider();
+    slider.init();
 })
 
 function getPhotographer(photographers) 

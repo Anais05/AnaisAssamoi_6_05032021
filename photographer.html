@@ -26,7 +26,7 @@
                         <ul class="sort-list" role="menu">
                             <li class="sort-li">
                                 <button class="sort-criteria" aria-label="Actuellement trié par popularité" id="popularity">Popularité
-                                    <img class="sort-icon" src="./img/Vector.png" alt="icone menu déroulant" />
+                                    <img class="sort-icon" src="./img/media-sort-close.png" alt="icone menu déroulant" />
                                 </button>
                             </li>
                             <li class="sort-li"><button class="sort-criteria" aria-label="Trier par date" id="date">Date</button></li>
@@ -69,6 +69,20 @@
                     </div>
                 </div>
             </div>
+            <section id="slider" aria-label="vue agrandi de l'image">
+                <button class="close-slider slider-btn">
+                    <img src="../img/close-slider.png" alt="slider close button">
+                </button>
+                <div class="slider-content">
+                    <div class="media"></div>
+                    <button class="back slider-btn">
+                        <img src="../img/slider-back.png" alt="previous slide button">
+                    </button>
+                    <button class="next slider-btn">
+                        <img src="../img/slider-next.png" alt="next slide button">
+                    </button>
+                </div>
+            </section>
         </main>
         <script src="./js/utils.js"></script>
         <script src="./js/MediaFactory.js"></script>
@@ -77,6 +91,7 @@
         <script src="./js/MediaList.js"></script>
         <script src="./js/Photographer.js"></script>
         <script src="./js/Modal.js"></script>
+        <script src="./js/Slider.js"></script>
         <script src="./js/profile.js"></script>
     </body>
 </html>

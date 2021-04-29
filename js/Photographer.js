@@ -54,6 +54,11 @@ class Photographer {
         `
     }
 
+    displayModalTitle()
+    {
+        document.getElementById('modal-title').innerHTML += this.renderModalTitle();
+    }
+
     displayProfile() 
     {
         document.getElementById('profile').innerHTML += this.renderProfile();

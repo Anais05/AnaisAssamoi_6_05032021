@@ -20,6 +20,7 @@ class MediaList
         }
         this.display(this.all);
         this.listenForSorting();
+        this.hydrateSliderContent();
     }
 
     display(medias) 
@@ -85,6 +86,13 @@ class MediaList
                 this[methodName]();
                 this.display(this.filtered)
             })
+        }
+    }
+
+    hydrateSliderContent(medias) 
+    {
+        for (let i = 0; i < medias.length; i++) {
+            document.getElementsByClassName('media').innerHTML += media[i].getSlide();
         }
     }
 }
