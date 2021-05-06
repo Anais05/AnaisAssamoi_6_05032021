@@ -16,7 +16,7 @@ class Video {
     {
         return ` 
             <article class="media-card">
-                <a href="" id="${this.id}" class="medium">
+                <a href="#" id="${this.id}" class="medium">
                     <video controls>
                         <source src="/img/${this.photographerId}/${this.video}" type="video/mp4">
                     </video>
@@ -32,7 +32,8 @@ class Video {
         `
     }
 
-    getSlide(){
+    getSlide()
+    {
         return `
             <div class="slide">
                 <video controls>

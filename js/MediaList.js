@@ -4,7 +4,7 @@ class MediaList
     constructor() 
     {
         this.all = [];
-        this.filtered
+        this.filtered = [];
         this.factory = new MediaFactory;
         this.order = {
             type : "popularity",
@@ -20,7 +20,7 @@ class MediaList
         }
         this.display(this.all);
         this.listenForSorting();
-        this.hydrateSliderContent();
+        // this.hydrateSliderContent(this.all);
     }
 
     display(medias) 
@@ -28,6 +28,11 @@ class MediaList
         let html = '';
         medias.forEach((media) => html += media.render());
         document.getElementById('galery').innerHTML += html;
+    }
+
+    clear() 
+    {
+        document.getElementById('galery').innerHTML = '';
     }
 
     updateSortings(type) 
@@ -84,6 +89,7 @@ class MediaList
                 this.updateSortings(filter);
                 let methodName = "sortBy" + capitalizeFirstLetter(filter);
                 this[methodName]();
+                this.clear();
                 this.display(this.filtered)
             })
         }
@@ -91,8 +97,10 @@ class MediaList
 
     hydrateSliderContent(medias) 
     {
+        let html = [];
         for (let i = 0; i < medias.length; i++) {
-            document.getElementsByClassName('media').innerHTML += media[i].getSlide();
+            html += medias[i].getSlide();
         }
+        document.getElementsByClassName('medias').innerHTML = html;
     }
 }

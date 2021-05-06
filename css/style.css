@@ -310,18 +310,16 @@ header .logo-container img {
 
 /* slider */
 #slider {
-  width: 100%;
-  height: 500px;
-  background-color: white;
-  position: relative;
+  min-width: 100%;
+  min-height: 200vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
   z-index: 50;
   display: none;
-}
-#slider .slider-content {
-  width: 80%;
-  height: 90%;
-  margin: auto;
-  background-color: black;
 }
 #slider .slider-btn {
   position: absolute;
@@ -339,13 +337,44 @@ header .logo-container img {
 #slider .close-slider {
   right: 55px;
 }
-#slider .next {
+#slider #next {
   right: 50px;
   top: 45%;
 }
-#slider .back {
+#slider #back {
   left: 50px;
   top: 45%;
+}
+
+.slider-content {
+  width: 80%;
+  height: 60%;
+  margin: auto;
+  margin-top: 25%;
+  background-color: black;
+  overflow: hidden;
+}
+.slider-content .slide {
+  width: 100%;
+  height: 100%;
+}
+.slider-content .slide img,
+.slider-content .slide video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#more-info {
+  display: flex;
+  justify-content: space-around;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  background-color: #db8876;
+  border-radius: 5px;
+  width: 200px;
+  font-weight: bold;
 }
 
 @keyframes modalopen {

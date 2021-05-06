@@ -11,7 +11,7 @@ class Modal {
         this.listenForEscapeKey();
         this.listenForClickOut();
         this.listenForSubmit();
-        this. listenForKeyup();
+        this.listenForKeyup();
         this.validate();
     }
 

@@ -54,6 +54,13 @@ class Photographer {
         `
     }
 
+    renderProfileMoreInfo() {
+        return `
+            <p class="all-likes">like <i class="fas fa-heart"></i></p>
+            <p class="p-price">${this.price}€/jour</p>
+        `
+    }
+
     displayModalTitle()
     {
         document.getElementById('modal-title').innerHTML += this.renderModalTitle();
@@ -62,6 +69,7 @@ class Photographer {
     displayProfile() 
     {
         document.getElementById('profile').innerHTML += this.renderProfile();
+        document.getElementById('more-info').innerHTML += this.renderProfileMoreInfo();
     }
 
 }

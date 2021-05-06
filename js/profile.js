@@ -2,6 +2,7 @@ fetchData().then((response) =>
 {
     let photographer = new Photographer(getPhotographer(response.photographers));
     photographer.displayProfile();
+    photographer.displayModalTitle();
 
     let medias = getPhotographerMedias(response);
     let medialist = new MediaList();
@@ -11,7 +12,8 @@ fetchData().then((response) =>
     modal.init();
 
     let slider = new Slider();
-    slider.init();
+    // slider.init();
+    slider.init(medialist.all);
 })
 
 function getPhotographer(photographers) 

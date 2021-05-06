@@ -16,7 +16,7 @@ class Image {
     {
         return ` 
             <article class="media-card">
-                <a href="" id="${this.id}" class="medium">
+                <a href="#" id="${this.id}" class="medium">
                     <img src="/img/${this.photographerId}/${this.image}">
                 </a>
                 <div class="media-info">
@@ -30,7 +30,8 @@ class Image {
         `
     }
 
-    getSlide(){
+    getSlide()
+    {
         return `
             <div class="slide">
                 <img src="/img/${this.photographerId}/${this.image}">

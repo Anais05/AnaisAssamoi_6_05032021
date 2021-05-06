@@ -1,123 +1,109 @@
 class Slider {
 
-    constructor() 
-    {
-       this.current = 0
-       this.next = document.getElementsByClassName("next");
-       this.previous = document.getElementsByClassName("back");
-       this.slides = document.getElementsByClassName("slide");
-    }
-
-    init() {
-        this.openSlider();
-        this.ListenForClose();
-        this.slideGauche();
-        this.slideDroite();
-        this.ListenForBack();
-        this. listenForKeys();
-        this.ListenForNext();
-        this.retriveOneToCurrent();
-        this.addOneToCurrent();
-    }
-
-
-
-    openSlider() 
-    {
-        document.getElementsByClassName("medium").addEventListener("click", () => {
-            document.getElementById("slider").style.display = "block";
-        })
-    }
-
-    close() 
-    {
-        document.getElementById("slider").style.display = "none";
-    }
-
-    ListenForClose() 
-    {
-        document.getElementsByClassName("close-slider")[0].addEventListener("click", this.close, false);
-    }
-
-    beginning()
-    {
-        for (let i = 0; i < this.slides.length; i++) {
-        this.slides[i].style.display = "none"; 
-        }
-    }
-
-    // précedent
-  slideGauche() 
+  constructor() 
   {
-    this.beginning();
-    this.slides[this.current - 1].style.display = "block";
-    this.current--;
+    this.current = 0
+    this.slides = document.getElementsByClassName("slide");
+    this.slider = document.getElementById("slider");
+    this.medias = [];
   }
 
-  // suivant
-  slideDroite() 
-  {
-    
-    this.beginning();
-    this.slides[this.current + 1].style.display = "block";
-    this.current++;
+  init(medias) {
+    this.listenForOpennig();
+    this.listenForClosing();
+    this.medias = medias;
+    console.log(this.medias)
   }
 
-  ListenForBack() 
+  hydrate() 
   {
-    this.previous.addEventListener("click", function() 
-    {
-      if (this.current === 0) {
-        this.current = this.slides.length; 
-       }  
-      this.slideGauche();
-    });
-
+    let html = '';
+    this.medias.forEach(media => {
+      html += media.getSlide();
+    })
+    document.querySelector('.medias').innerHTML = html;
   }
 
-  ListenForNext() 
-  {
-    this.next.addEventListener("click", function() 
-    {
-      if (this.current === this.slides.length - 1) {
-        this.current = -1; 
-      }
-      this.slideDroite();
-    });
-
+  getSlideNumber() {
+    for (let i = 0; i < this.slides.length; i++) {
+      return this.current =  i;
+    }
   }
 
-  listenForKeys() 
+  startSlide() 
   {
-    document.addEventListener("keydown", e=> 
-    {
-      if (e.keyCode === 37) 
-      {
-        this.retriveOneToCurrent(); 
-      } 
-      else if(e.keyCode === 39) 
-      {
-        this.addOneToCurrent(); 
-      }
-    });
+    this.hideAllSlides();
+    this.slides[this.current].style.display = "block";
   }
 
-  retriveOneToCurrent()
+  listenForOpennig() 
   {
+    for (let thumbnail of document.getElementsByClassName("medium") ) {
+      thumbnail.addEventListener("click", (e) => {
+        e.preventDefault();
+        this.hydrate();
+        this.getSlideNumber();
+        this.startSlide();
+        this.slider.style.display = "block";
+        this.ListenForMove();
+        console.log(this.current)
+      })
+    }
+  }
+
+  close() 
+  {
+    this.slider.style.display = "none";
+    this.current = 0;
+  }
+
+  listenForClosing() 
+  {
+    document.getElementsByClassName("close-slider")[0].addEventListener("click", this.close, false);
+  }
+
+  hideAllSlides()
+  {
+    for (let i = 0; i < this.slides.length; i++) {
+    this.slides[i].style.display = "none"; 
+    }
+  }
+
+  moveLeft() 
+  {
+    this.hideAllSlides();
     if (this.current === 0) {
       this.current = this.slides.length; 
     }
-    this.slideGauche();
+    this.slides[this.current - 1].style.display = "block";
+    this.current--;
+    console.log(this.current)
   }
 
-  addOneToCurrent()
-  {  
+  moveRight() 
+  {
+    this.hideAllSlides();
     if (this.current === this.slides.length - 1) {
-    this.current = -1; }
-    this.slideDroite();
+      this.current = -1; 
+    } 
+    this.slides[this.current + 1].style.display = "block";
+    this.current++;
+    console.log(this.current)
   }
 
-    
+  ListenForMove() 
+  {
+    let nextBtn = document.getElementById("next");
+    let previousBtn = document.getElementById("back");
 
+    nextBtn.addEventListener("click", () => { this.moveRight(); });
+    previousBtn.addEventListener("click", () => { this.moveLeft(); });
 
+    document.addEventListener("keydown", (e) => 
+    {
+      if (e.keyCode === 37) { this.moveLeft(); } 
+      if(e.keyCode === 39) { this.moveRight(); }
+    });
+
+  }
 }
