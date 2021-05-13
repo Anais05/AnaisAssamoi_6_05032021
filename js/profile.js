@@ -14,18 +14,11 @@ fetchData().then((response) =>
 
 function getPhotographer(photographers) 
 {
-    return photographers.filter((photographer) => photographer.id == getId())[0];
+    return photographers.filter((photographer) => photographer.id == query('id'))[0];
 }
 
 function getPhotographerMedias(response) 
 {
-    return response.media.filter((medium) =>  medium.photographerId == getId());
-}
-
-
-function getId() 
-{
-    const urlParams = new URLSearchParams(window.location.search);
-    return urlParams.get('id');
+    return response.media.filter((medium) =>  medium.photographerId == query('id'));
 }
 

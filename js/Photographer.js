@@ -39,7 +39,7 @@ class Photographer {
                 <p class="card-location">${this.city}, ${this.country}</p>
                 <p class="card-tagline">${this.tagline}</p>
                 <div class="card-taglist" id="tags">
-                    ${this.tags.map(tag =>`<a class="filter">#${tag}</li></a>`).join('')}
+                    ${this.tags.map(tag =>`<a href="index.html?tag=${tag}" class="filter">#${tag}</li></a>`).join('')}
                 </div>
             </article> 
             <button id="scroll-btn" class="contact-btn" aria-label="Formulaire de contact de ${this.name}">Contactez moi</button>

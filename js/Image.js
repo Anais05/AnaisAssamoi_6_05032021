@@ -10,6 +10,7 @@ class Image {
         this.price = data.price;
         this.image = data.image;
         this.title = title;
+        this.hasBeenLikes = false;
     }
 
     render()
@@ -19,11 +20,11 @@ class Image {
                 <div class="medium">
                     <img src="/img/${this.photographerId}/${this.image}">
                 </div>
-                <div class="media-info">
+                <div class="media-legend">
                     <h4 class="media-text">${this.title}</h4>
-                    <div class="prices">
+                    <div class="media-info">
                         <p class='media-price'>${this.price}€</p>
-                        <button class="liker" aria-label="aimer la photo}">${this.likes}<i class="fas fa-heart"></i></button>
+                        <button class="like-btn" aria-label="aimer la photo">${this.likes}<i class="fas fa-heart"></i></button>
                     </div>
                 </div>
             </article> 
@@ -38,6 +39,16 @@ class Image {
                 <h4 class="media-text">${this.title}</h4>
             </div>
         `
+    }
+
+    like()
+    {
+        if (this.hasBeenLikes) {
+            this.likes--;
+        } else {
+            this.likes++;
+        }
+        this.hasBeenLikes = !this.hasBeenLikes;
     }
 
 }

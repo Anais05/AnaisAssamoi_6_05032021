@@ -33,16 +33,13 @@ class Slider {
   {
     for (let thumbnail of document.getElementsByClassName("medium") ) {
       thumbnail.addEventListener("click", (e) => {
-        console.log('123');
         let id = e.target.closest('.media-card').getAttribute('id');
         let index = this.medias.findIndex(media => media.id == id);
-        console.log(id, index);
         this.hydrate();
         this.current = index;
         this.startSlide(this.current);
-        this.slider.style.display = "block";
+        this.slider.style.display = "flex";
         this.ListenForMove();
-        console.log(this.current)
       })
     }
   }

@@ -19,9 +19,10 @@ class MediaList
         {
             this.all.push(this.factory.init(item))
         }
+        this.filtered = this.all;
         this.display(this.all);
         this.listenForSorting();
-        this.filtered = this.all;
+        this.listenForLike();
     }
 
     display(medias) 
@@ -97,12 +98,19 @@ class MediaList
         }
     }
 
-    hydrateSliderContent(medias) 
+    listenForLike() 
     {
-        let html = [];
-        for (let i = 0; i < medias.length; i++) {
-            html += medias[i].getSlide();
-        }
-        document.getElementsByClassName('medias').innerHTML = html;
+        document.querySelectorAll('.like-btn').forEach(btn =>
+        {
+            btn.addEventListener('click', (e) =>
+            {
+                let el = e.target.closest('.like-btn');
+                let parent = btn.closest('.media-card');
+                let id = parent.getAttribute('id');
+                let index = this.all.findIndex(media => media.id == id);
+                this.all[index].like()
+                el.innerHTML = this.all[index].likes + '<i class="fas fa-heart"></i>';
+            })
+        })
     }
 }

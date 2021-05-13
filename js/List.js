@@ -21,6 +21,12 @@ class List
         this.displayTags();
         this.displayPhotographers(this.all);
         this.listenForTagsFilter();
+
+        if(query('tag'))
+        {
+            this.addToFilter(query('tag'));
+            this.filter();
+        }
     }
 
     displayPhotographers(photographers) 
@@ -70,23 +76,33 @@ class List
 
     listenForTagsFilter() 
     {
-        let self = this;
         this.tags.forEach((tag) => 
         {
-            document.getElementById(tag).addEventListener('click', function (e) 
+            document.getElementById(tag).addEventListener('click', (e) =>
             {
-                let element = e.target;
-                if (self.activeTag.includes(tag)) {
-                    element.classList.remove('active-tag');
-                    let indexTag = self.activeTag.findIndex(item => item == tag);
-                    self.activeTag.splice(indexTag, 1);
+                if (this.activeTag.includes(tag)) {
+                    this.removeFromFilter(tag);
                 } else {
-                    element.classList.add('active-tag');
-                    self.activeTag.push(tag);
+                    this.addToFilter(tag);
                 }
-                self.filter()
+                this.filter()
             })
         })
+    }
+
+    addToFilter(tag)
+    {
+        let el = document.getElementById(tag);
+        el.classList.add('active-tag');
+        this.activeTag.push(tag);
+    }
+
+    removeFromFilter(tag)
+    {
+        let el = document.getElementById(tag);
+        el.classList.remove('active-tag');
+        let indexTag = this.activeTag.findIndex(item => item == tag);
+        this.activeTag.splice(indexTag, 1);
     }
 
 }

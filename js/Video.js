@@ -10,6 +10,7 @@ class Video {
         this.price = data.price;
         this.video = data.video;
         this.title = title;
+        this.hasBeenLikes = false;
     }
 
     render()
@@ -21,11 +22,11 @@ class Video {
                         <source src="/img/${this.photographerId}/${this.video}" type="video/mp4">
                     </video>
                 </div>
-                <div class="media-info">
+                <div class="media-legend">
                     <h4 class="media-text">${this.title}</h4>
-                    <div class="prices">
+                    <div class="media-info">
                         <p class='media-price'>${this.price}€</p>
-                        <button class="liker" aria-label="aimer la photo}">${this.likes}<i class="fas fa-heart"></i></button>
+                        <button class="like-btn" aria-label="aimer la video">${this.likes}<i class="fas fa-heart"></i></button>
                     </div>
                 </div>
             </article> 
@@ -42,6 +43,16 @@ class Video {
                 <h4 class="media-text">${this.title}</h4>
             </div>
         `
+    }
+
+    like()
+    {
+        if (this.hasBeenLikes) {
+            this.likes--;
+        } else {
+            this.likes++;
+        }
+        this.hasBeenLikes = !this.hasBeenLikes;
     }
 
 
