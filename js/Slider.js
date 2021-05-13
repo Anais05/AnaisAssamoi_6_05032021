@@ -12,7 +12,6 @@ class Slider {
     this.listenForOpennig();
     this.listenForClosing();
     this.medias = medias;
-    console.log(this.medias)
   }
 
   hydrate() 
@@ -24,26 +23,23 @@ class Slider {
     document.querySelector('.medias').innerHTML = html;
   }
 
-  getSlideNumber() {
-    for (let i = 0; i < this.slides.length; i++) {
-      return this.current =  i;
-    }
-  }
-
-  startSlide() 
+  startSlide(current) 
   {
     this.hideAllSlides();
-    this.slides[this.current].style.display = "block";
+    this.slides[current].style.display = "block";
   }
 
   listenForOpennig() 
   {
     for (let thumbnail of document.getElementsByClassName("medium") ) {
       thumbnail.addEventListener("click", (e) => {
-        e.preventDefault();
+        console.log('123');
+        let id = e.target.closest('.media-card').getAttribute('id');
+        let index = this.medias.findIndex(media => media.id == id);
+        console.log(id, index);
         this.hydrate();
-        this.getSlideNumber();
-        this.startSlide();
+        this.current = index;
+        this.startSlide(this.current);
         this.slider.style.display = "block";
         this.ListenForMove();
         console.log(this.current)
@@ -51,15 +47,11 @@ class Slider {
     }
   }
 
-  close() 
-  {
-    this.slider.style.display = "none";
-    this.current = 0;
-  }
-
   listenForClosing() 
   {
-    document.getElementsByClassName("close-slider")[0].addEventListener("click", this.close, false);
+    document.getElementsByClassName("close-slider")[0].addEventListener("click", () => {
+      this.slider.style.display = "none";
+    })
   }
 
   hideAllSlides()

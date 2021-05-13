@@ -42,7 +42,7 @@ class Photographer {
                     ${this.tags.map(tag =>`<a class="filter">#${tag}</li></a>`).join('')}
                 </div>
             </article> 
-            <button class="contact-btn" aria-label="Formulaire de contact de ${this.name}">Contactez moi</button>
+            <button id="scroll-btn" class="contact-btn" aria-label="Formulaire de contact de ${this.name}">Contactez moi</button>
             <img class="profile-image" src="../img/${this.id}/${this.background}" alt="picture ${this.name}">
         `
     }
@@ -57,7 +57,7 @@ class Photographer {
     renderProfileMoreInfo() {
         return `
             <p class="all-likes">like <i class="fas fa-heart"></i></p>
-            <p class="p-price">${this.price}€/jour</p>
+            <p class="p-price">${this.price}€ / jour</p>
         `
     }
 
@@ -69,7 +69,14 @@ class Photographer {
     displayProfile() 
     {
         document.getElementById('profile').innerHTML += this.renderProfile();
-        document.getElementById('more-info').innerHTML += this.renderProfileMoreInfo();
+        document.getElementById('more-info').innerHTML += this.renderProfileMoreInfo(); 
+    }
+
+    displayContactBtn()
+    {
+        window.onscroll(function() {
+            document.getElementById("scroll-btn").style.display = "block";
+        })
     }
 
 }

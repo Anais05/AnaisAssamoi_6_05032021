@@ -15,12 +15,12 @@ class Video {
     render()
     {
         return ` 
-            <article class="media-card">
-                <a href="#" id="${this.id}" class="medium">
+            <article class="media-card" id="${this.id}">
+                <div class="medium">
                     <video controls>
                         <source src="/img/${this.photographerId}/${this.video}" type="video/mp4">
                     </video>
-                </a>
+                </div>
                 <div class="media-info">
                     <h4 class="media-text">${this.title}</h4>
                     <div class="prices">
@@ -36,7 +36,7 @@ class Video {
     {
         return `
             <div class="slide">
-                <video controls>
+                <video controls autoplay>
                     <source src="/img/${this.photographerId}/${this.video}" type="video/mp4">
                 </video>
                 <h4 class="media-text">${this.title}</h4>

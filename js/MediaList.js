@@ -10,6 +10,7 @@ class MediaList
             type : "popularity",
             isAscending: true
         };
+        this.slider = new Slider;
     }
 
     init(medias) 
@@ -20,7 +21,7 @@ class MediaList
         }
         this.display(this.all);
         this.listenForSorting();
-        // this.hydrateSliderContent(this.all);
+        this.filtered = this.all;
     }
 
     display(medias) 
@@ -28,6 +29,7 @@ class MediaList
         let html = '';
         medias.forEach((media) => html += media.render());
         document.getElementById('galery').innerHTML += html;
+        this.slider.init(this.all);
     }
 
     clear() 

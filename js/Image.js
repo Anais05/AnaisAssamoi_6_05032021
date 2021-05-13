@@ -15,10 +15,10 @@ class Image {
     render()
     {
         return ` 
-            <article class="media-card">
-                <a href="#" id="${this.id}" class="medium">
+            <article class="media-card" id="${this.id}">
+                <div class="medium">
                     <img src="/img/${this.photographerId}/${this.image}">
-                </a>
+                </div>
                 <div class="media-info">
                     <h4 class="media-text">${this.title}</h4>
                     <div class="prices">
