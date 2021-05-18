@@ -2,7 +2,7 @@
   font-family: "DMSans";
   src: url("../fonts/DMSans-Regular.ttf") format("truetype");
 }
-header {
+.main-header {
   width: 100%;
   margin: 35px 0;
   margin-right: 20%;
@@ -12,12 +12,27 @@ header {
   justify-content: space-around;
   align-items: center;
 }
-header .logo-container {
+.main-header .logo-container {
   width: 200px;
   height: 50px;
   grid-area: logo;
 }
-header .logo-container img {
+.main-header .logo-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-header {
+  height: 60px;
+  display: flex;
+  margin: 30px 0 30px 0;
+}
+.profile-header .profile-logo-container {
+  width: 170px;
+  height: 90%;
+}
+.profile-header .profile-logo-container img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -68,7 +83,7 @@ header .logo-container img {
 #profile {
   display: grid;
   grid-template-areas: "profile contact-btn profile-image";
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: auto 1fr auto;
   background-color: #fafafa;
   border-radius: 5px;
   width: 95%;
@@ -76,11 +91,11 @@ header .logo-container img {
 }
 #profile .card {
   grid-area: profile;
-  width: 150%;
   align-items: flex-start;
 }
 #profile .card h3 {
   font-size: 45px;
+  text-align: start;
 }
 #profile .card p {
   margin: 15px 5px;
@@ -93,11 +108,13 @@ header .logo-container img {
   background-color: #901c1c;
   font-weight: bold;
   color: #fff;
+  border: none;
   border-radius: 5px;
-  height: 25%;
-  width: 50%;
+  height: 60px;
+  width: 130px;
   margin-left: 55px;
   margin-top: 40px;
+  z-index: 2;
 }
 #profile .profile-image {
   grid-area: profile-image;
@@ -107,7 +124,7 @@ header .logo-container img {
   height: 200px;
   object-fit: cover;
   display: block;
-  margin: auto;
+  margin-top: 40px;
 }
 
 #portfolio {
@@ -367,7 +384,7 @@ header .logo-container img {
 }
 .slider-content .slide {
   width: 100%;
-  max-height: 80vh;
+  max-height: 120vh;
 }
 .slider-content .slide img,
 .slider-content .slide video {
@@ -377,12 +394,14 @@ header .logo-container img {
 }
 .slider-content .slide .media-text {
   color: #901c1c;
+  margin: 0;
 }
 
 #more-info {
   width: 100%;
   margin: auto;
   height: 70px;
+  position: relative;
 }
 
 .more-info {
@@ -394,8 +413,9 @@ header .logo-container img {
   background-color: #db8876;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
-  width: 200px;
+  width: 230px;
   font-weight: bold;
+  z-index: 5;
 }
 
 @keyframes modalopen {
@@ -413,10 +433,10 @@ body {
   margin: auto;
 }
 
-.main {
+#main {
   width: 100%;
 }
-.main .main-title {
+#main .main-title {
   color: #901c1c;
   position: absolute;
   top: 20px;
@@ -426,6 +446,20 @@ body {
   justify-content: center;
   align-items: center;
   grid-area: title;
+}
+#main .scroll {
+  position: fixed;
+  top: 15%;
+  padding: 5px;
+  width: 200px;
+  left: 45%;
+  background-color: #db8876;
+  font-weight: bold;
+  color: black;
+  text-align: center;
+  border-radius: 5px;
+  text-decoration: none;
+  z-index: 5;
 }
 
 #photographers {
@@ -490,7 +524,7 @@ body {
     grid-gap: 45px;
   }
 
-  header {
+  .main-header {
     height: 150px;
     grid-template-areas: "logo title" "nav-tags nav-tags";
     grid-template-columns: 1fr 1fr;
@@ -500,8 +534,11 @@ body {
     padding: 0;
   }
 
-  .main .main-title {
+  #main .main-title {
     top: 40px;
+  }
+  #main .scroll {
+    left: 42%;
   }
 }
 @media screen and (max-width: 810px) {
@@ -515,19 +552,39 @@ body {
     padding: 0;
   }
 
-  .contact-btn,
-.sort {
+  #main .scroll {
+    left: 40%;
+  }
+
+  .sort {
     display: none;
+  }
+
+  #profile .contact-btn {
+    position: fixed;
+    height: 35px;
+    width: 145px;
+    bottom: 10px;
+    margin: 0;
+    left: 42%;
+  }
+
+  .more-info {
+    position: absolute;
+    left: 35%;
   }
 }
 @media screen and (max-width: 700px) {
-  header .logo-container {
+  .main-header .logo-container {
     width: 200px;
     height: 60px;
   }
 
-  .main .main-title {
+  #main .main-title {
     font-size: 25px;
+  }
+  #main .scroll {
+    left: 35%;
   }
 
   #profile .profile-image {
@@ -536,15 +593,18 @@ body {
   }
 }
 @media screen and (max-width: 490px) {
-  header .logo-container {
+  .main-header .logo-container {
     width: 150px;
     height: 50px;
   }
 
-  .main .main-title {
+  #main .main-title {
     top: 50px;
     font-size: 15px;
     right: 10px;
+  }
+  #main .scroll {
+    left: 25%;
   }
 
   #photographers {
@@ -562,6 +622,32 @@ body {
   #galery img,
 #galery video {
     border-radius: 5px;
+  }
+
+  #profile .card-taglist {
+    flex-wrap: wrap;
+  }
+  #profile .contact-btn {
+    left: 33%;
+  }
+
+  .more-info {
+    position: absolute;
+    left: 20%;
+  }
+}
+@media screen and (max-width: 320px) {
+  #main .scroll {
+    left: 18%;
+  }
+
+  #profile .contact-btn {
+    left: 28%;
+  }
+
+  .more-info {
+    position: absolute;
+    left: 12%;
   }
 }
 

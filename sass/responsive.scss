@@ -4,7 +4,7 @@
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 45px;
   }
-  header {
+  .main-header {
     height: 150px;
     grid-template-areas:
       "logo title"
@@ -14,8 +14,13 @@
   .home-nav #tags {
     padding: 0;
   }
-  .main .main-title {
-    top: 40px;
+  #main {
+    .main-title {
+      top: 40px;
+    }
+    .scroll {
+      left: 42%;
+    }
   }
 }
 
@@ -28,20 +33,39 @@
   .home-nav {
     padding: 0;
   }
+  #main .scroll {
+    left: 40%;
+  }
 
-  .contact-btn,
   .sort {
     display: none;
+  }
+  #profile .contact-btn {
+    position: fixed;
+    height: 35px;
+    width: 145px;
+    bottom: 10px;
+    margin: 0;
+    left: 42%;
+  }
+  .more-info {
+    position: absolute;
+    left: 35%;
   }
 }
 
 @media screen and (max-width: 700px) {
-  header .logo-container {
+  .main-header .logo-container {
     width: 200px;
     height: 60px;
   }
-  .main .main-title {
-    font-size: 25px;
+  #main {
+    .main-title {
+      font-size: 25px;
+    }
+    .scroll {
+      left: 35%;
+    }
   }
   #profile .profile-image {
     width: 130px;
@@ -50,14 +74,19 @@
 }
 
 @media screen and (max-width: 490px) {
-  header .logo-container {
+  .main-header .logo-container {
     width: 150px;
     height: 50px;
   }
-  .main .main-title {
-    top: 50px;
-    font-size: 15px;
-    right: 10px;
+  #main {
+    .main-title {
+      top: 50px;
+      font-size: 15px;
+      right: 10px;
+    }
+    .scroll {
+      left: 25%;
+    }
   }
   #photographers {
     grid-template-columns: 100%;
@@ -66,11 +95,39 @@
   .card-taglist .filter {
     font-size: 12px;
   }
+
   #galery {
     grid-template-columns: 100%;
     img,
     video {
       border-radius: 5px;
     }
+  }
+  #profile {
+    .card-taglist {
+      flex-wrap: wrap;
+    }
+    .contact-btn {
+      left: 33%;
+    }
+  }
+
+  .more-info {
+    position: absolute;
+    left: 20%;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  #main .scroll {
+    left: 18%;
+  }
+
+  #profile .contact-btn {
+    left: 28%;
+  }
+  .more-info {
+    position: absolute;
+    left: 12%;
   }
 }
