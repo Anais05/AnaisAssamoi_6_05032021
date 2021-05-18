@@ -205,6 +205,7 @@ header .logo-container img {
   cursor: pointer;
 }
 
+/* Contact Modal */
 .bground {
   display: none;
   position: fixed;
@@ -214,7 +215,7 @@ header .logo-container img {
   height: 100%;
   width: 100%;
   overflow: auto;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: white;
 }
 .bground .content {
   margin: 70px auto;
@@ -227,6 +228,10 @@ header .logo-container img {
   overflow: hidden;
   position: relative;
   padding-top: 10px;
+}
+.bground #modal-title {
+  padding-left: 38px;
+  font-size: 30px;
 }
 .bground .modal-body {
   padding: 25px;
@@ -246,7 +251,7 @@ header .logo-container img {
 }
 #form label {
   color: #312e2e;
-  font-size: 20px;
+  font-size: 25px;
   font-weight: bold;
 }
 #form .text-control {
@@ -283,7 +288,6 @@ header .logo-container img {
   height: 100%;
 }
 
-/* Modal success */
 #success {
   display: none;
 }
@@ -376,11 +380,17 @@ header .logo-container img {
 }
 
 #more-info {
+  width: 100%;
+  margin: auto;
+  height: 70px;
+}
+
+.more-info {
   display: flex;
   justify-content: space-around;
   position: fixed;
   bottom: 0;
-  right: 0;
+  right: 2.3%;
   background-color: #db8876;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;

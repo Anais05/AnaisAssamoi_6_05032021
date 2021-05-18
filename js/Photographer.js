@@ -56,8 +56,13 @@ class Photographer {
 
     renderProfileMoreInfo() {
         return `
-            <p class="all-likes">like <i class="fas fa-heart"></i></p>
-            <p class="p-price">${this.price}€ / jour</p>
+            <aside class="more-info">
+                <p>
+                    <span id="all-likes"></span>
+                    <i class="fas fa-heart"></i>
+                </p>
+                <p class="p-price">${this.price}€ / jour</p>
+            </aside>
         `
     }
 

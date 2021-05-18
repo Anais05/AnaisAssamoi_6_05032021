@@ -22,7 +22,6 @@ class MediaList
         this.filtered = this.all;
         this.display(this.all);
         this.listenForSorting();
-        this.listenForLike();
     }
 
     display(medias) 
@@ -31,6 +30,8 @@ class MediaList
         medias.forEach((media) => html += media.render());
         document.getElementById('galery').innerHTML += html;
         this.slider.init(this.all);
+        this.listenForLike();
+        this.countTotalLikes();
     }
 
     clear() 
@@ -110,7 +111,17 @@ class MediaList
                 let index = this.all.findIndex(media => media.id == id);
                 this.all[index].like()
                 el.innerHTML = this.all[index].likes + '<i class="fas fa-heart"></i>';
+                this.countTotalLikes();
             })
         })
+    }
+
+    countTotalLikes()
+    {
+        let total = 0;
+        for (let media of this.all) {
+            total += media.likes;
+        }
+        document.getElementById('all-likes').innerHTML = total;
     }
 }

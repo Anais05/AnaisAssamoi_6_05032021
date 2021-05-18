@@ -140,6 +140,8 @@
   }
 }
 
+/* Contact Modal */
+
 .bground {
   display: none;
   position: fixed;
@@ -149,7 +151,7 @@
   height: 100%;
   width: 100%;
   overflow: auto;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: white;
 
   .content {
     margin: 70px auto;
@@ -162,6 +164,11 @@
     overflow: hidden;
     position: relative;
     padding-top: 10px;
+  }
+
+  #modal-title {
+    padding-left: 38px;
+    font-size: 30px;
   }
 
   .modal-body {
@@ -185,7 +192,7 @@
 
   label {
     color: $dark-color;
-    font-size: 20px;
+    font-size: 25px;
     font-weight: bold;
   }
 
@@ -224,8 +231,6 @@
     height: 100%;
   }
 }
-
-/* Modal success */
 
 #success {
   display: none;
@@ -323,11 +328,17 @@
 }
 
 #more-info {
+  width: 100%;
+  margin: auto;
+  height: 70px;
+}
+
+.more-info {
   display: flex;
   justify-content: space-around;
   position: fixed;
   bottom: 0;
-  right: 0;
+  right: 2.3%;
   background-color: $tertiary;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
