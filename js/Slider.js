@@ -40,14 +40,24 @@ class Slider {
         this.startSlide(this.current);
         this.slider.style.display = "flex";
         this.ListenForMove();
+        this.listenForEscapeKey();
       })
     }
   }
-
+  
   listenForClosing() 
   {
     document.getElementsByClassName("close-slider")[0].addEventListener("click", () => {
       this.slider.style.display = "none";
+    })
+  }
+      
+  listenForEscapeKey() 
+  {
+    document.addEventListener("keydown", (e) => {
+      if (e.keyCode === 27) {
+        this.slider.style.display = "none";
+      }
     })
   }
 

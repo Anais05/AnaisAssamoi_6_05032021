@@ -19,7 +19,6 @@ class MediaList
         {
             this.all.push(this.factory.init(item))
         }
-        this.filtered = this.all;
         this.display(this.all);
         this.listenForSorting();
     }

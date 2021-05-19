@@ -1,10 +1,4 @@
 class Modal {
-    constructor() 
-    {
-        this.escapeHandler;
-        this.clickOutHandler;
-    }
-
     init() {
         this.listenForOpening();
         this.listenForClosing();
