@@ -18,7 +18,7 @@ class Photographer {
         return `
             <article id="photographer-${this.id}" class="card">
                 <a href="/photographer.html?id=${this.id}" aria-label="visiter la page de ${this.name}">
-                    <img class="card-image" src="../img/${this.id}/${this.background}" alt="">
+                    <img class="card-image" src="../img/${this.id}/${this.background}" alt="photo de ${this.name}">
                     <h3 class="card-name">${this.name}</h3>
                 </a>
                 <p class="card-location">${this.city}, ${this.country}</p>
@@ -43,7 +43,7 @@ class Photographer {
                 </div>
             </article> 
             <button id="scroll-btn" class="contact-btn" aria-label="Formulaire de contact de ${this.name}">Contactez moi</button>
-            <img class="profile-image" src="../img/${this.id}/${this.background}" alt="picture ${this.name}">
+            <img class="profile-image" src="../img/${this.id}/${this.background}" alt="photo de profil de ${this.name}">
         `
     }
 

@@ -116,6 +116,10 @@
     position: absolute;
     left: 20%;
   }
+
+  #slider .close-slider {
+    top: 25%;
+  }
 }
 
 @media screen and (max-width: 320px) {
@@ -129,5 +133,9 @@
   .more-info {
     position: absolute;
     left: 12%;
+  }
+
+  #slider .close-slider {
+    top: 30%;
   }
 }

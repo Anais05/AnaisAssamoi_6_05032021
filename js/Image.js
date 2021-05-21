@@ -9,6 +9,7 @@ class Image {
         this.date = data.date;
         this.price = data.price;
         this.image = data.image;
+        this.alt = data.alt;
         this.title = title;
         this.hasBeenLikes = false;
     }
@@ -18,7 +19,7 @@ class Image {
         return ` 
             <article class="media-card" id="${this.id}">
                 <div class="medium">
-                    <img src="/img/${this.photographerId}/${this.image}">
+                    <img src="/img/${this.photographerId}/${this.image}" alt="${this.alt}">
                 </div>
                 <div class="media-legend">
                     <h4 class="media-text">${this.title}</h4>
@@ -35,7 +36,7 @@ class Image {
     {
         return `
             <div class="slide">
-                <img src="/img/${this.photographerId}/${this.image}">
+                <img src="/img/${this.photographerId}/${this.image}" alt="${this.alt}">
                 <h4 class="media-text">${this.title}</h4>
             </div>
         `

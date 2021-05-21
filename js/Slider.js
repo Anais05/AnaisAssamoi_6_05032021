@@ -6,6 +6,7 @@ class Slider {
     this.slides = document.getElementsByClassName("slide");
     this.slider = document.getElementById("slider");
     this.medias = [];
+    this.moveRinghtHandler;
   }
 
   init(medias) {
@@ -34,9 +35,8 @@ class Slider {
     for (let thumbnail of document.getElementsByClassName("medium") ) {
       thumbnail.addEventListener("click", (e) => {
         let id = e.target.closest('.media-card').getAttribute('id');
-        let index = this.medias.findIndex(media => media.id == id);
+        this.current = this.medias.findIndex(media => media.id == id);
         this.hydrate();
-        this.current = index;
         this.startSlide(this.current);
         this.slider.style.display = "flex";
         this.ListenForMove();
@@ -77,6 +77,7 @@ class Slider {
     this.slides[this.current - 1].style.display = "block";
     this.current--;
     console.log(this.current)
+
   }
 
   moveRight() 
