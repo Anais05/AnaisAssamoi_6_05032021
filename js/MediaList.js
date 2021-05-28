@@ -19,7 +19,8 @@ class MediaList
         {
             this.all.push(this.factory.init(item))
         }
-        this.display(this.all);
+        this.sortByPopularity();
+        this.display(this.filtered)
         this.listenForSorting();
     }
 
@@ -53,9 +54,9 @@ class MediaList
         this.filtered = this.all.sort((a, b) => 
         {
             if (this.order.isAscending) {
-                return  a.likes - b.likes;
+                return  b.likes - a.likes;
             }
-            return  b.likes - a.likes;
+            return  a.likes - b.likes;
             
         });
     }
@@ -96,6 +97,15 @@ class MediaList
                 this.display(this.filtered)
             })
         }
+
+        // const e = document.getElementById("sort-select");
+        // const sort = e.value;
+        // this.updateSortings(sort);
+        // let methodName = "sortBy" + capitalizeFirstLetter(sort);
+        // this[methodName]();
+        // this.clear();
+        // this.display(this.filtered)
+        // console.log(e);
     }
 
     listenForLike() 

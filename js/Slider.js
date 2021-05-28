@@ -70,14 +70,17 @@ class Slider {
 
   moveLeft() 
   {
-    this.hideAllSlides();
-    if (this.current === 0) {
-      this.current = this.slides.length; 
-    }
-    this.slides[this.current - 1].style.display = "block";
-    this.current--;
-    console.log(this.current)
 
+    this.moveRinghtHandler = function () {
+      this.hideAllSlides();
+      if (this.current === 0) {
+        this.current = this.slides.length; 
+      }
+      this.slides[this.current - 1].style.display = "block";
+      this.current--;
+      console.log(this.current)
+
+    }
   }
 
   moveRight() 
