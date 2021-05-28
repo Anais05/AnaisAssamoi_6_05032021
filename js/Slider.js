@@ -6,7 +6,10 @@ class Slider {
     this.slides = document.getElementsByClassName("slide");
     this.slider = document.getElementById("slider");
     this.medias = [];
-    this.moveRinghtHandler;
+    this.nextBtn = null;
+    this.previousBtn = null;
+    this.moveRightHandler;
+    this.moveLeftHandler;
   }
 
   init(medias) {
@@ -28,6 +31,7 @@ class Slider {
   {
     this.hideAllSlides();
     this.slides[current].style.display = "block";
+    this.listenForMove();
   }
 
   listenForOpennig() 
@@ -39,16 +43,27 @@ class Slider {
         this.hydrate();
         this.startSlide(this.current);
         this.slider.style.display = "flex";
-        this.ListenForMove();
         this.listenForEscapeKey();
       })
     }
+  }
+
+  close()
+  {
+    this.nextBtn.removeEventListener("click", this.moveRightHandler);
+    this.previousBtn.removeEventListener("click", this.moveLeftHandler);
+    document.removeEventListener("keydown", (e) => 
+    {
+      if (e.keyCode === 37) { this.moveLeftHandler(); } 
+      if(e.keyCode === 39) { this.moveRightHandler(); }
+    });
+    this.slider.style.display = "none";
   }
   
   listenForClosing() 
   {
     document.getElementsByClassName("close-slider")[0].addEventListener("click", () => {
-      this.slider.style.display = "none";
+      this.close();
     })
   }
       
@@ -56,7 +71,7 @@ class Slider {
   {
     document.addEventListener("keydown", (e) => {
       if (e.keyCode === 27) {
-        this.slider.style.display = "none";
+        this.close();
       }
     })
   }
@@ -70,17 +85,13 @@ class Slider {
 
   moveLeft() 
   {
-
-    this.moveRinghtHandler = function () {
-      this.hideAllSlides();
-      if (this.current === 0) {
-        this.current = this.slides.length; 
-      }
-      this.slides[this.current - 1].style.display = "block";
-      this.current--;
-      console.log(this.current)
-
+    this.hideAllSlides();
+    if (this.current === 0) {
+      this.current = this.slides.length; 
     }
+    this.slides[this.current - 1].style.display = "block";
+    this.current--;
+    console.log(this.current)
   }
 
   moveRight() 
@@ -94,19 +105,20 @@ class Slider {
     console.log(this.current)
   }
 
-  ListenForMove() 
+  listenForMove() 
   {
-    let nextBtn = document.getElementById("next");
-    let previousBtn = document.getElementById("back");
+    this.nextBtn = document.getElementById("next");
+    this.previousBtn = document.getElementById("back");
 
-    nextBtn.addEventListener("click", () => { this.moveRight(); });
-    previousBtn.addEventListener("click", () => { this.moveLeft(); });
+    this.moveRightHandler = () => { this.moveRight(); }
+    this.moveLeftHandler = () => { this.moveLeft(); }
 
+    this.nextBtn.addEventListener("click", this.moveRightHandler);
+    this.previousBtn.addEventListener("click", this.moveLeftHandler);
     document.addEventListener("keydown", (e) => 
     {
-      if (e.keyCode === 37) { this.moveLeft(); } 
-      if(e.keyCode === 39) { this.moveRight(); }
+      if (e.keyCode === 37) { this.moveLeftHandler(); } 
+      if(e.keyCode === 39) { this.moveRightHandler(); }
     });
-
   }
 }
