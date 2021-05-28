@@ -97,15 +97,6 @@ class MediaList
                 this.display(this.filtered)
             })
         }
-
-        // const e = document.getElementById("sort-select");
-        // const sort = e.value;
-        // this.updateSortings(sort);
-        // let methodName = "sortBy" + capitalizeFirstLetter(sort);
-        // this[methodName]();
-        // this.clear();
-        // this.display(this.filtered)
-        // console.log(e);
     }
 
     listenForLike() 
