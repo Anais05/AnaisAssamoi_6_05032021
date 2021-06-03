@@ -1,16 +1,17 @@
 class MediaList 
 {
-
     constructor() 
     {
         this.all = [];
         this.filtered = [];
-        this.factory = new MediaFactory;
+        this.factory = new MediaFactory();
         this.order = {
             type : "popularity",
             isAscending: true
         };
-        this.slider = new Slider;
+        this.slider = new Slider();
+        this.sortMenu = document.querySelector('.sort-list');
+        this.currentSort = document.getElementById('current-sort');
     }
 
     init(medias) 
@@ -21,6 +22,7 @@ class MediaList
         }
         this.sortByPopularity();
         this.display(this.filtered)
+        this.openSortMenu();
         this.listenForSorting();
     }
 
@@ -83,10 +85,17 @@ class MediaList
         });
     }
 
+    openSortMenu() 
+    {
+        this.currentSort.addEventListener('click', () =>
+        {
+            this.sortMenu.style.display = "block";
+        })
+    }
+
     listenForSorting()
     {
         const buttons = document.querySelectorAll('.sort-criteria');
-        const current = document.querySelectorAll('.current-sort');
         for (const button of buttons) {
             button.addEventListener("click", () => 
             {
@@ -94,11 +103,10 @@ class MediaList
                 this.updateSortings(filter);
                 let methodName = "sortBy" + capitalizeFirstLetter(filter);
                 this[methodName]();
-                current.innerHTML = button.innerHTML;
+                this.currentSort.innerHTML = button.textContent + '<i class="fas fa-chevron-down"></i>';
+                this.sortMenu.style.display = "none";
                 this.clear();
                 this.display(this.filtered)
-                console.log( current.innerHTML);
-                console.log( button.innerHTML);
             })
         }
     }

@@ -23,10 +23,13 @@
                 <div id="portfolio">
                     <div class="sort">
                         <p class="sort-label">Trier par</p>
+                        <button id="current-sort" aria-label="Actuellement trié par popularité">Popularité
+                            <span><i class="fas fa-chevron-down sort-icon"></i></span>
+                        </button>
                         <ul class="sort-list" role="menu">
                             <li class="sort-li">
-                                <button class="sort-criteria current-sort" aria-label="Actuellement trié par popularité" id="popularity">Popularité
-                                    <img class="sort-icon" src="./img/media-sort-close.png" alt="icone menu déroulant" />
+                                <button class="sort-criteria" aria-label="Actuellement trié par popularité" id="popularity">Popularité
+                                    <span><i class="fas fa-chevron-up sort-icon"></i></span>
                                 </button>
                             </li>
                             <li class="sort-li"><button class="sort-criteria" aria-label="Trier par date" id="date">Date</button></li>

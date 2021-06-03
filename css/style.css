@@ -136,32 +136,37 @@
 .sort {
   display: flex;
   flex-direction: row;
-  margin-top: 50px;
+  margin: 50px 0 20px 0;
+  position: relative;
 }
 .sort .sort-label {
   font-size: 18px;
   font-weight: bold;
   margin-right: 35px;
-}
-.sort .sort-list {
-  display: grid;
-  list-style-type: none;
-  grid-template-columns: auto;
-  grid-template-rows: repeat(3, auto);
-  padding: unset;
-  height: 55px;
-  overflow: hidden;
   z-index: 3;
-  border-radius: 5px;
-}
-.sort .sort-list:hover {
-  height: 160px;
-  transition: height 0.2s ease-in-out;
 }
 .sort .sort-li {
   position: relative;
 }
-.sort .sort-criteria {
+.sort .sort-list {
+  display: none;
+  list-style-type: none;
+  font-weight: bold;
+  border: 1px solid #901c1c;
+  border-radius: 5px;
+  position: absolute;
+  left: 103px;
+  top: -20px;
+  padding: unset;
+  z-index: 3;
+}
+.sort .sort-icon {
+  width: 16px;
+  height: 11px;
+}
+
+.sort-criteria,
+#current-sort {
   border: none;
   background-color: #901c1c;
   padding: 20px;
@@ -173,6 +178,12 @@
   justify-content: space-between;
   cursor: pointer;
   position: relative;
+}
+
+#current-sort {
+  border-radius: 5px;
+  height: 55px;
+  display: flex;
 }
 
 .sort-li:not(:first-child)::before {
