@@ -466,10 +466,10 @@ body {
 }
 #main .scroll {
   position: fixed;
-  top: 15%;
+  display: none;
+  top: 10%;
   padding: 5px;
-  width: 200px;
-  left: 45%;
+  left: 44%;
   background-color: #db8876;
   font-weight: bold;
   color: black;
@@ -570,7 +570,7 @@ body {
   }
 
   #main .scroll {
-    left: 40%;
+    left: 38%;
   }
 
   .sort {
@@ -621,7 +621,7 @@ body {
     right: 10px;
   }
   #main .scroll {
-    left: 25%;
+    left: 29%;
   }
 
   #photographers {
@@ -659,7 +659,7 @@ body {
 }
 @media screen and (max-width: 320px) {
   #main .scroll {
-    left: 18%;
+    left: 22%;
   }
 
   #profile .contact-btn {
