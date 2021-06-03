@@ -136,7 +136,7 @@
 .sort {
   display: flex;
   flex-direction: row;
-  margin: 50px 0;
+  margin-top: 50px;
 }
 .sort .sort-label {
   font-size: 18px;
@@ -149,7 +149,14 @@
   grid-template-columns: auto;
   grid-template-rows: repeat(3, auto);
   padding: unset;
+  height: 55px;
+  overflow: hidden;
   z-index: 3;
+  border-radius: 5px;
+}
+.sort .sort-list:hover {
+  height: 160px;
+  transition: height 0.2s ease-in-out;
 }
 .sort .sort-li {
   position: relative;

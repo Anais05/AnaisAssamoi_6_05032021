@@ -86,6 +86,7 @@ class MediaList
     listenForSorting()
     {
         const buttons = document.querySelectorAll('.sort-criteria');
+        const current = document.querySelectorAll('.current-sort');
         for (const button of buttons) {
             button.addEventListener("click", () => 
             {
@@ -93,8 +94,11 @@ class MediaList
                 this.updateSortings(filter);
                 let methodName = "sortBy" + capitalizeFirstLetter(filter);
                 this[methodName]();
+                current.innerHTML = button.innerHTML;
                 this.clear();
                 this.display(this.filtered)
+                console.log( current.innerHTML);
+                console.log( button.innerHTML);
             })
         }
     }
