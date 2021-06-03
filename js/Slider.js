@@ -10,9 +10,11 @@ class Slider {
     this.previousBtn = null;
     this.moveRightHandler;
     this.moveLeftHandler;
+    this.moveByKeyHandler;
   }
 
-  init(medias) {
+  init(medias) 
+  {
     this.listenForOpennig();
     this.listenForClosing();
     this.medias = medias;
@@ -36,7 +38,7 @@ class Slider {
 
   listenForOpennig() 
   {
-    for (let thumbnail of document.getElementsByClassName("medium") ) {
+    for (let thumbnail of document.getElementsByClassName("medium")) {
       thumbnail.addEventListener("click", (e) => {
         let id = e.target.closest('.media-card').getAttribute('id');
         this.current = this.medias.findIndex(media => media.id == id);
@@ -52,11 +54,8 @@ class Slider {
   {
     this.nextBtn.removeEventListener("click", this.moveRightHandler);
     this.previousBtn.removeEventListener("click", this.moveLeftHandler);
-    document.removeEventListener("keydown", (e) => 
-    {
-      if (e.keyCode === 37) { this.moveLeftHandler(); } 
-      if(e.keyCode === 39) { this.moveRightHandler(); }
-    });
+    document.removeEventListener("keydown", this.moveByKeyHandler);
+
     this.slider.style.display = "none";
   }
   
@@ -112,13 +111,13 @@ class Slider {
 
     this.moveRightHandler = () => { this.moveRight(); }
     this.moveLeftHandler = () => { this.moveLeft(); }
+    this.moveByKeyHandler = (e) => {
+      if (e.keyCode === 37) { this.moveLeft(); } 
+      if (e.keyCode === 39) { this.moveRight(); }
+    }
 
     this.nextBtn.addEventListener("click", this.moveRightHandler);
     this.previousBtn.addEventListener("click", this.moveLeftHandler);
-    document.addEventListener("keydown", (e) => 
-    {
-      if (e.keyCode === 37) { this.moveLeftHandler(); } 
-      if(e.keyCode === 39) { this.moveRightHandler(); }
-    });
+    document.addEventListener("keydown", this.moveByKeyHandler);
   }
 }
