@@ -47,8 +47,8 @@ class Modal {
     listenForKeyup() 
     {
         let InputToValidateKeyup = [
-          {id : "first", check : this.isNameValid},
-          {id : "last", check : this.isNameValid},
+          {id : "firstname", check : this.isNameValid},
+          {id : "lastname", check : this.isNameValid},
           {id : "email", check : this.isMailValid},
           {id : "message", check : this.isMessageValid},
         ];
@@ -94,8 +94,8 @@ class Modal {
 
     validate () 
     {
-        const firstName = document.getElementById("first");
-        const lastName = document.getElementById("last");
+        const firstName = document.getElementById("firstname");
+        const lastName = document.getElementById("lastname");
         const email = document.getElementById("email");
         const message = document.getElementById("message");
 

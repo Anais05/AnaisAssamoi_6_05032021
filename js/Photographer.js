@@ -18,14 +18,17 @@ class Photographer {
         return `
             <article id="photographer-${this.id}" class="card">
                 <a href="/photographer.html?id=${this.id}" aria-label="visiter la page de ${this.name}">
-                    <img class="card-image" src="../img/${this.id}/${this.background}" alt="photo de ${this.name}">
-                    <h3 class="card-name">${this.name}</h3>
+                    <img class="card-image" src="../img/${this.id}/${this.background}" alt="">
+                    <h2 class="card-name">${this.name}</h2>
                 </a>
                 <p class="card-location">${this.city}, ${this.country}</p>
                 <p class="card-tagline">${this.tagline}</p>
                 <p class="card-price">${this.price}€/jour</p>
                 <ul class="card-taglist">
-                ${this.tags.map(tag =>`<li class="filter">#${tag}</li></li>`).join('')}
+                ${this.tags.map(tag =>`
+                    <li class="tag" id="${tag}">#${tag}
+                        <span class="hidden">#${tag}</span>
+                    </li>`).join('')}
                 </ul>
             </article>
         `;
@@ -35,14 +38,17 @@ class Photographer {
     {
         return `
             <article id="profile-info" class="card">
-                <h3 class="card-name">${this.name}</h3>
+                <h1 class="card-name">${this.name}</h1>
                 <p class="card-location">${this.city}, ${this.country}</p>
                 <p class="card-tagline">${this.tagline}</p>
                 <div class="card-taglist" id="tags">
-                    ${this.tags.map(tag =>`<a href="index.html?tag=${tag}" class="filter">#${tag}</li></a>`).join('')}
+                    ${this.tags.map(tag =>`
+                    <a href="index.html?tag=${tag}" class="interactive-tag tag">#${tag}
+                        <span class="hidden">#${tag}</span>
+                    </a>`).join('')}
                 </div>
             </article> 
-            <button id="scroll-btn" class="contact-btn" aria-label="Formulaire de contact de ${this.name}">Contactez moi</button>
+            <button class="contact-btn interactive-btn" aria-label="contactez moi ${this.name}">Contactez moi</button>
             <img class="profile-image" src="../img/${this.id}/${this.background}" alt="photo de profil de ${this.name}">
         `
     }
@@ -75,13 +81,6 @@ class Photographer {
     {
         document.getElementById('profile').innerHTML += this.renderProfile();
         document.getElementById('more-info').innerHTML += this.renderProfileMoreInfo(); 
-    }
-
-    displayContactBtn()
-    {
-        window.onscroll(function() {
-            document.getElementById("scroll-btn").style.display = "block";
-        })
     }
 
 }

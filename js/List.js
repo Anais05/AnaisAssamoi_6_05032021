@@ -1,9 +1,5 @@
-
-    
-
 class List 
 {
-
     constructor() 
     {
         this.all = [];
@@ -55,7 +51,11 @@ class List
 
     renderTag(tag)
     {
-        return `<li class="header-filter filter" aria-label="filtre par ${tag}" id="${tag}">#${tag}</li>`;
+        return `
+            <li class="interactive-tag tag" aria-label="filtre par ${tag}" id="${tag}">#${tag}
+                <span class="hidden">#${tag}</span>
+            </li>
+        `;
     }
 
     filter() 

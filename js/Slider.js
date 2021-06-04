@@ -90,7 +90,6 @@ class Slider {
     }
     this.slides[this.current - 1].style.display = "block";
     this.current--;
-    console.log(this.current)
   }
 
   moveRight() 
@@ -101,7 +100,6 @@ class Slider {
     } 
     this.slides[this.current + 1].style.display = "block";
     this.current++;
-    console.log(this.current)
   }
 
   listenForMove() 

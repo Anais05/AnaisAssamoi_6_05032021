@@ -19,7 +19,7 @@ class Video extends Media {
                     <h4 class="media-text">${this.title}</h4>
                     <div class="media-info">
                         <p class='media-price'>${this.price}€</p>
-                        <button class="like-btn" aria-label="aimer la video">${this.likes}<i class="fas fa-heart"></i></button>
+                        <button class="like-btn" aria-label="aimer la video">${this.likes}<i class="fas fa-heart heart"></i></button>
                     </div>
                 </div>
             </article> 

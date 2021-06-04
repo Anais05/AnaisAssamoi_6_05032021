@@ -11,7 +11,7 @@ class MediaList
         };
         this.slider = new Slider();
         this.sortMenu = document.querySelector('.sort-list');
-        this.currentSort = document.getElementById('current-sort');
+        this.currentSort = document.querySelector('.current-sort');
     }
 
     init(medias) 
@@ -122,7 +122,7 @@ class MediaList
                 let id = parent.getAttribute('id');
                 let index = this.all.findIndex(media => media.id == id);
                 this.all[index].like()
-                el.innerHTML = this.all[index].likes + '<i class="fas fa-heart"></i>';
+                el.innerHTML = this.all[index].likes + '<i class="fas fa-heart heart"></i>';
                 this.countTotalLikes();
             })
         })

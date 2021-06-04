@@ -13,7 +13,7 @@
     </head>
     <body>
         <header class="profile-header">
-            <a href="/" aria-label="page d'accueil" class="profile-logo-container">
+            <a href="/" aria-label="lien vers page d'accueil" class="profile-logo-container">
                 <img class="logo" src="../img/logo.png" alt="FishEye logo">
             </a>
         </header>
@@ -23,17 +23,17 @@
                 <div id="portfolio">
                     <div class="sort">
                         <p class="sort-label">Trier par</p>
-                        <button id="current-sort" aria-label="Actuellement trié par popularité">Popularité
+                        <button class="current-sort interactive-btn" aria-label="Actuellement trié par popularité">Popularité
                             <span><i class="fas fa-chevron-down sort-icon"></i></span>
                         </button>
                         <ul class="sort-list" role="menu">
                             <li class="sort-li">
-                                <button class="sort-criteria" aria-label="Actuellement trié par popularité" id="popularity">Popularité
+                                <button class="sort-criteria interactive-btn" aria-label="Actuellement trié par popularité" id="popularity">Popularité
                                     <span><i class="fas fa-chevron-up sort-icon"></i></span>
                                 </button>
                             </li>
-                            <li class="sort-li"><button class="sort-criteria" aria-label="Trier par date" id="date">Date</button></li>
-                            <li class="sort-li"><button class="sort-criteria" aria-label="Trier par titre" id="title">Titre</button></li>
+                            <li class="sort-li"><button class="sort-criteria interactive-btn" aria-label="Trier par date" id="date">Date</button></li>
+                            <li class="sort-li"><button class="sort-criteria interactive-btn" aria-label="Trier par titre" id="title">Titre</button></li>
                         </ul>
                     </div>
                     <div id="galery"></div>
@@ -42,18 +42,18 @@
             <div class="bground">
                 <div class="content">
                     <div id="modal-title"></div>
-                    <button class="close">
+                    <button class="close" aria-label="fermer le formulaire">
                         <img src="../img/modal-close-btn.png" alt="modal close button">
                     </button>
                     <div class="modal-body">
-                        <form id="form">
+                        <form id="form" aria-label="formulaire de contact">
                             <div class="formData" data-error = "Veuillez entrer 2 caractères ou plus">
-                                <label for="first">Prénom</label><br>
-                                <input class="text-control" type="text" id="first" name="first" required/>
+                                <label for="firstname">Prénom</label><br>
+                                <input class="text-control" type="text" id="firstname" name="firstname" required/>
                             </div>
                             <div class="formData" data-error = "Veuillez entrer 2 caractères ou plus">
-                                <label for="last">Nom</label><br>
-                                <input class="text-control" type="text" id="last" name="last" required/>
+                                <label for="lastname">Nom</label><br>
+                                <input class="text-control" type="text" id="lastname" name="lastname" required/>
                             </div>
                             <div class="formData" data-error = "Veuillez entrer une adresse e-mail correcte">
                                 <label for="email">E-mail</label><br>
@@ -67,18 +67,18 @@
                         </form>
                         <div id="success">
                             <p class="success-text">Merci ! Votre réservation a bien été reçue !</p>
-                          </div>
+                        </div>
                     </div>
                 </div>
             </div>
             <section id="slider" aria-label="vue agrandi de l'image">
-                <button class="close-slider slider-btn">
+                <button class="close-slider slider-btn" aria-label="fermer le slider">
                     <img src="../img/close-slider.png" alt="slider close button">
                 </button>
-                <button id="back" class="slider-btn">
+                <button id="back" class="slider-btn" aria-label="image précédente">
                     <img src="../img/slider-back.png" alt="previous slide button">
                 </button>
-                <button id="next" class="slider-btn">
+                <button id="next" class="slider-btn" aria-label="image suivante">
                     <img src="../img/slider-next.png" alt="next slide button">
                 </button>
                 <div class="slider-content">

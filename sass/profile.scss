@@ -16,23 +16,9 @@
     p {
       margin: 15px 5px;
     }
-    .filter {
+    .tag {
       text-decoration: none;
     }
-  }
-
-  .contact-btn {
-    grid-area: contact-btn;
-    background-color: $primary;
-    font-weight: bold;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    height: 60px;
-    width: 130px;
-    margin-left: 55px;
-    margin-top: 40px;
-    z-index: 2;
   }
   .profile-image {
     grid-area: profile-image;
@@ -44,6 +30,21 @@
     display: block;
     margin-top: 40px;
   }
+}
+
+.contact-btn {
+  grid-area: contact-btn;
+  background-color: $primary;
+  font-weight: bold;
+  font-size: 15px;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  height: 60px;
+  width: 130px;
+  margin-left: 100px;
+  margin-top: 60px;
+  z-index: 2;
 }
 
 #portfolio {
@@ -70,12 +71,12 @@
     display: none;
     list-style-type: none;
     font-weight: bold;
-    border: 1px solid $primary;
     border-radius: 5px;
+    overflow: hidden;
     position: absolute;
-    left: 103px;
-    top: -20px;
+    left: 104px;
     padding: unset;
+    margin: unset;
     z-index: 3;
   }
   .sort-icon {
@@ -85,13 +86,14 @@
 }
 
 .sort-criteria,
-#current-sort {
+.current-sort {
   border: none;
   background-color: $primary;
   padding: 20px;
   color: #fff;
   width: 170px;
   font-weight: bold;
+  font-size: 15px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -99,7 +101,7 @@
   position: relative;
 }
 
-#current-sort {
+.current-sort {
   border-radius: 5px;
   height: 55px;
   display: flex;
@@ -121,6 +123,7 @@
   grid-gap: 35px;
   flex-direction: row;
   flex-wrap: wrap;
+  margin-top: 30px;
   .media-card {
     width: 100%;
   }
@@ -157,6 +160,9 @@
     color: $primary;
     font-size: 20px;
     cursor: pointer;
+    .heart {
+      margin-left: 5px;
+    }
   }
 }
 
@@ -369,7 +375,14 @@
   z-index: 5;
 }
 
-// animation modal
+/* interactive buttons hover */
+
+.interactive-btn:hover {
+  background-color: $tertiary;
+  color: black;
+}
+
+/* animation modal */
 
 @keyframes modalopen {
   from {
