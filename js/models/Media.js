@@ -1,6 +1,6 @@
 class Media {
 
-    constructor(data, title)
+    constructor(data)
     {
         this.id = data.id;
         this.photographerId = data.photographerId;
