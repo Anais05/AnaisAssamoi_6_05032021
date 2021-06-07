@@ -1,6 +1,6 @@
 async function fetchData () 
 {
-  const response = await fetch('../FishEyeDataFR.json')
+  const response = await fetch('https://anais05.github.io/AnaisAssamoi_6_05032021/FishEyeDataFR.json')
   const data = await response.json();
   return data
 }
