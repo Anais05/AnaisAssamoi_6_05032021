@@ -11,7 +11,7 @@ class Image extends Media {
         return ` 
             <article class="media-card" id="${this.id}">
                 <div class="medium">
-                    <img src="/img/${this.photographerId}/${this.src}" alt="${this.alt}">
+                    <img src="./img/${this.photographerId}/${this.src}" alt="${this.alt}">
                 </div>
                 <div class="media-legend">
                     <h4 class="media-text">${this.title}</h4>
@@ -28,7 +28,7 @@ class Image extends Media {
     {
         return `
             <div class="slide">
-                <img src="/img/${this.photographerId}/${this.src}" alt="${this.alt}">
+                <img src="./img/${this.photographerId}/${this.src}" alt="${this.alt}">
                 <h4 class="media-text">${this.title}</h4>
             </div>
         `

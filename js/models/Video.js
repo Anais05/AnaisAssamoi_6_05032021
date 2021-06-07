@@ -12,7 +12,7 @@ class Video extends Media {
             <article class="media-card" id="${this.id}">
                 <div class="medium">
                     <video controls>
-                        <source src="/img/${this.photographerId}/${this.src}" type="video/mp4" alt="${this.alt}">
+                        <source src="./img/${this.photographerId}/${this.src}" type="video/mp4" alt="${this.alt}">
                     </video>
                 </div>
                 <div class="media-legend">
@@ -31,7 +31,7 @@ class Video extends Media {
         return `
             <div class="slide">
                 <video controls autoplay>
-                    <source src="/img/${this.photographerId}/${this.src}" type="video/mp4" alt="${this.alt}">
+                    <source src="./img/${this.photographerId}/${this.src}" type="video/mp4" alt="${this.alt}">
                 </video>
                 <h4 class="media-text">${this.title}</h4>
             </div>
