@@ -10,13 +10,13 @@ class Video extends Media {
     {
         return ` 
             <article class="media-card" id="${this.id}">
-                <div class="medium">
-                    <video controls>
+                <button class="medium">
+                    <video autoplay>
                         <source src="./img/${this.photographerId}/${this.src}" type="video/mp4" alt="${this.alt}">
                     </video>
-                </div>
+                </button>
                 <div class="media-legend">
-                    <h4 class="media-text">${this.title}</h4>
+                    <h4 class="media-text" tabindex="0">${this.title}</h4>
                     <div class="media-info">
                         <p class='media-price'>${this.price}€</p>
                         <button class="like-btn" aria-label="aimer la video">${this.likes}<i class="fas fa-heart heart"></i></button>
@@ -33,7 +33,7 @@ class Video extends Media {
                 <video controls autoplay>
                     <source src="./img/${this.photographerId}/${this.src}" type="video/mp4" alt="${this.alt}">
                 </video>
-                <h4 class="media-text">${this.title}</h4>
+                <h4 class="media-text" tabindex="0">${this.title}</h4>
             </div>
         `
     }

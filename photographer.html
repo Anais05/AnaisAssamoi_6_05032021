@@ -26,7 +26,7 @@
                         <button class="current-sort interactive-btn" aria-label="Actuellement trié par popularité">Popularité
                             <span><i class="fas fa-chevron-down sort-icon"></i></span>
                         </button>
-                        <ul class="sort-list" role="menu">
+                        <ul class="sort-list" role="button">
                             <li class="sort-li">
                                 <button class="sort-criteria interactive-btn" aria-label="Actuellement trié par popularité" id="popularity">Popularité
                                     <span><i class="fas fa-chevron-up sort-icon"></i></span>
@@ -48,22 +48,22 @@
                     <div class="modal-body">
                         <form id="form" aria-label="formulaire de contact">
                             <div class="formData" data-error = "Veuillez entrer 2 caractères ou plus">
-                                <label for="firstname">Prénom</label><br>
+                                <label for="firstname" tabindex="0">Prénom</label><br>
                                 <input class="text-control" type="text" id="firstname" name="firstname" required/>
                             </div>
                             <div class="formData" data-error = "Veuillez entrer 2 caractères ou plus">
-                                <label for="lastname">Nom</label><br>
+                                <label for="lastname" tabindex="0">Nom</label><br>
                                 <input class="text-control" type="text" id="lastname" name="lastname" required/>
                             </div>
                             <div class="formData" data-error = "Veuillez entrer une adresse e-mail correcte">
-                                <label for="email">E-mail</label><br>
+                                <label for="email" tabindex="0">E-mail</label><br>
                                 <input class="text-control" type="text" id="email" name="email" required/>
                             </div>
                             <div class="formData" data-error = "Veuillez entrer 20 caractères ou plus">
-                                <label for="message">Message</label><br>
+                                <label for="message" tabindex="0">Message</label><br>
                                 <textarea class="text-control" type="text" id="message" name="message" required></textarea>
                             </div>
-                            <input class="btn-submit" id="submit" type="submit" value="Envoyer"/>
+                            <button class="btn-submit" id="submit" type="submit">Envoyer</button>
                         </form>
                         <div id="success">
                             <p class="success-text">Merci ! Votre réservation a bien été reçue !</p>

@@ -65,12 +65,12 @@
 .card-taglist .tag {
   color: #901c1c;
   border: 0.5px solid #c4c4c4;
-  box-sizing: border-box;
   border-radius: 11px;
   padding: 0 8px;
   font-weight: 600;
   font-size: 15px;
   margin: 3px;
+  text-decoration: none;
 }
 .header-tags .active-tag,
 .header-tags .interactive-tag:hover,
@@ -92,8 +92,7 @@
   grid-template-columns: auto 1fr auto;
   background-color: #fafafa;
   border-radius: 5px;
-  width: 95%;
-  margin: auto;
+  padding: 0 15px 0 15px;
 }
 #profile .card {
   grid-area: profile;
@@ -105,9 +104,6 @@
 }
 #profile .card p {
   margin: 15px 5px;
-}
-#profile .card .tag {
-  text-decoration: none;
 }
 #profile .profile-image {
   grid-area: profile-image;
@@ -133,6 +129,7 @@
   margin-left: 100px;
   margin-top: 60px;
   z-index: 2;
+  cursor: pointer;
 }
 
 #portfolio {
@@ -212,6 +209,10 @@
   flex-direction: row;
   flex-wrap: wrap;
   margin-top: 30px;
+}
+#galery .medium {
+  border: none;
+  padding: unset;
 }
 #galery .media-card {
   width: 100%;
@@ -350,7 +351,7 @@
 
 .formData[data-error]::after {
   content: attr(data-error);
-  font-size: 10;
+  font-size: 10px;
   color: #901c1c;
   display: block;
   margin-top: 10px;
@@ -679,7 +680,7 @@ body {
 }
 @media screen and (max-width: 320px) {
   #main .scroll {
-    left: 22%;
+    left: 23%;
   }
 
   #profile .contact-btn {

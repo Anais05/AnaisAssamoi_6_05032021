@@ -10,11 +10,11 @@ class Image extends Media {
     {
         return ` 
             <article class="media-card" id="${this.id}">
-                <div class="medium">
+                <button class="medium">
                     <img src="./img/${this.photographerId}/${this.src}" alt="${this.alt}">
-                </div>
+                </button>
                 <div class="media-legend">
-                    <h4 class="media-text">${this.title}</h4>
+                    <h4 class="media-text" tabindex="0">${this.title}</h4>
                     <div class="media-info">
                         <p class='media-price'>${this.price}€</p>
                         <button class="like-btn" aria-label="aimer la photo">${this.likes}<i class="fas fa-heart heart"></i></button>
@@ -29,7 +29,7 @@ class Image extends Media {
         return `
             <div class="slide">
                 <img src="./img/${this.photographerId}/${this.src}" alt="${this.alt}">
-                <h4 class="media-text">${this.title}</h4>
+                <h4 class="media-text" tabindex="0">${this.title}</h4>
             </div>
         `
     }
