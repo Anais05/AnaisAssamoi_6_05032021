@@ -10,7 +10,7 @@ class Image extends Media {
     {
         return ` 
             <article class="media-card" id="${this.id}">
-                <button class="medium">
+                <button class="medium" aria-labelledby="${this.id}">
                     <img src="./img/${this.photographerId}/${this.src}" alt="${this.alt}">
                 </button>
                 <div class="media-legend">

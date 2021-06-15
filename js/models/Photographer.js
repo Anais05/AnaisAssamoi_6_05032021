@@ -62,10 +62,10 @@ class Photographer {
 
     renderProfileMoreInfo() {
         return `
-            <aside class="more-info">
+            <aside class="more-info" tabindex="0">
                 <p>
                     <span id="all-likes"></span>
-                    <i class="fas fa-heart"></i>
+                    <i class="fas fa-heart" title="nombre totale de likes du photographe"></i>
                 </p>
                 <p class="p-price">${this.price}€ / jour</p>
             </aside>

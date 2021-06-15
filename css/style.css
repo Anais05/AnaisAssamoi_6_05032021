@@ -82,10 +82,6 @@
   cursor: pointer;
 }
 
-.hidden {
-  display: none;
-}
-
 #profile {
   display: grid;
   grid-template-areas: "profile contact-btn profile-image";
@@ -351,7 +347,6 @@
 
 .formData[data-error]::after {
   content: attr(data-error);
-  font-size: 10px;
   color: #901c1c;
   display: block;
   margin-top: 10px;
@@ -362,6 +357,8 @@
 
 .formData[data-error-visible=true]::after {
   opacity: 1;
+  font-size: 18px;
+  font-weight: bold;
 }
 
 /* slider */
@@ -420,7 +417,7 @@
 .slider-content .slide img,
 .slider-content .slide video {
   width: 100vw;
-  max-height: 80vh;
+  height: 80vh;
   object-fit: cover;
 }
 .slider-content .slide .media-text {
@@ -553,6 +550,10 @@ body {
   color: #757575;
   font-size: 13px;
   line-height: 13px;
+}
+
+.hidden {
+  display: none;
 }
 
 @media screen and (max-width: 1024px) {

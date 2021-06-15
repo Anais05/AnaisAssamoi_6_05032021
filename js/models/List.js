@@ -32,7 +32,7 @@ class List
         {
             html += photographer.renderCard()
         })
-        document.getElementById('photographers').innerHTML= html;
+        document.getElementById('photographers').innerHTML += html;
     }
 
     displayTags() 

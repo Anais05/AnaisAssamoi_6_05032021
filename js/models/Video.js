@@ -10,8 +10,8 @@ class Video extends Media {
     {
         return ` 
             <article class="media-card" id="${this.id}">
-                <button class="medium">
-                    <video autoplay>
+                <button class="medium" aria-labelledby="${this.id}">
+                    <video controls>
                         <source src="./img/${this.photographerId}/${this.src}" type="video/mp4" alt="${this.alt}">
                     </video>
                 </button>
@@ -30,7 +30,7 @@ class Video extends Media {
     {
         return `
             <div class="slide">
-                <video controls autoplay>
+                <video controls>
                     <source src="./img/${this.photographerId}/${this.src}" type="video/mp4" alt="${this.alt}">
                 </video>
                 <h4 class="media-text" tabindex="0">${this.title}</h4>
