@@ -52,8 +52,8 @@ class List
     renderTag(tag)
     {
         return `
-            <li aria-label="filtre par ${tag}">
-                <a href="#"  id="${tag}" class="interactive-tag tag">#${tag}</a>
+            <li aria-label="filtre les photographes">
+                <a href="#" aria-label="filtrer par ${tag}" id="${tag}" class="interactive-tag tag">#${tag}</a>
                 <span class="hidden">#${tag}</span>
             </li>
         `;

@@ -24,7 +24,7 @@ class Photographer {
                 <p class="card-location">${this.city}, ${this.country}</p>
                 <p class="card-tagline">${this.tagline}</p>
                 <p class="card-price">${this.price}€/jour</p>
-                <ul class="card-taglist">
+                <ul class="card-taglist" aria-label="les tags de ${this.name}">
                 ${this.tags.map(tag =>`
                     <li class="tag" id="${tag}">#${tag}
                         <span class="hidden">#${tag}</span>
@@ -43,7 +43,7 @@ class Photographer {
                 <p class="card-tagline">${this.tagline}</p>
                 <div class="card-taglist" id="tags">
                     ${this.tags.map(tag =>`
-                    <a href="index.html?tag=${tag}" class="interactive-tag tag">#${tag}
+                    <a href="index.html?tag=${tag}" aria-label="filtrer par ${tag}" class="interactive-tag tag">#${tag}
                         <span class="hidden">#${tag}</span>
                     </a>`).join('')}
                 </div>
@@ -65,7 +65,7 @@ class Photographer {
             <aside class="more-info" tabindex="0">
                 <p>
                     <span id="all-likes"></span>
-                    <i class="fas fa-heart" title="nombre totale de likes du photographe"></i>
+                    <i class="fas fa-heart" title="nombre totale de likes de ${this.name}"></i>
                 </p>
                 <p class="p-price">${this.price}€ / jour</p>
             </aside>
