@@ -30,7 +30,7 @@ class MediaList
     {
         let html = '';
         medias.forEach((media) => html += media.render());
-        document.getElementById('galery').innerHTML += html;
+        document.getElementById('galery').innerHTML = html;
         this.slider.init(this.all);
         this.listenForLike();
         this.countTotalLikes();

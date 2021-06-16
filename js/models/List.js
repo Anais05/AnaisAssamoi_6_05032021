@@ -35,6 +35,11 @@ class List
         document.getElementById('photographers').innerHTML += html;
     }
 
+    clear() 
+    {
+        document.getElementById('photographers').innerHTML = '';
+    }
+
     displayTags() 
     {
         let list = new Set([]);
@@ -71,7 +76,7 @@ class List
                 }).length > 0;
             });
         }
-       
+        this.clear()
         this.displayPhotographers(filtered)
     }
 
