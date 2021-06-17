@@ -9,8 +9,7 @@ class Photographer {
         this.tagline = data.tagline;
         this.price = data.price;
         this.portrait = data.portrait;
-        this.background = data.background
-        this.medias = [];
+        this.background = data.background;
     }
 
     renderCard() 

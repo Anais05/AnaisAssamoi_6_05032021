@@ -1,4 +1,11 @@
 class Modal {
+    constructor()
+     {
+        this.firstName = document.getElementById("firstname");
+        this.lastName = document.getElementById("lastname");
+        this.email = document.getElementById("email");
+        this.message = document.getElementById("message");
+     }
     init() {
         this.listenForOpening();
         this.listenForClosing();
@@ -130,6 +137,14 @@ class Modal {
         parent.setAttribute('data-error-visible', false);
     }
 
+    displayModalInfo() 
+    {
+        console.log('Prénon:', this.firstName.value);
+        console.log('Nom:', this.lastName.value);
+        console.log('Email:', this.email.value);
+        console.log('Message:', this.message.value);
+    }
+
     listenForSubmit() 
     {
         document.getElementById("form").addEventListener("submit", (e) => {
@@ -138,6 +153,7 @@ class Modal {
                 e.preventDefault();
                 form.style.display = 'none';
                 document.getElementById("success").style.display = 'block';
+                this.displayModalInfo();
             } else {
                 e.preventDefault();
             }
