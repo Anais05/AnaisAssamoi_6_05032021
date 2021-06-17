@@ -1,11 +1,12 @@
 class Modal {
     constructor()
-     {
+    {
         this.firstName = document.getElementById("firstname");
         this.lastName = document.getElementById("lastname");
         this.email = document.getElementById("email");
         this.message = document.getElementById("message");
-     }
+    }
+    
     init() {
         this.listenForOpening();
         this.listenForClosing();
@@ -101,24 +102,19 @@ class Modal {
 
     validate () 
     {
-        const firstName = document.getElementById("firstname");
-        const lastName = document.getElementById("lastname");
-        const email = document.getElementById("email");
-        const message = document.getElementById("message");
-
-        if (!this.isNameValid(firstName.value)){
+        if (!this.isNameValid(this.firstName.value)){
             return false
         } 
       
-        if (!this.isNameValid(lastName.value)) {
+        if (!this.isNameValid(this.lastName.value)) {
             return false
         } 
       
-        if (!this.isMailValid(email.value)){
+        if (!this.isMailValid(this.email.value)){
             return false
         } 
       
-        if (!this.isMessageValid(message.value)){
+        if (!this.isMessageValid(this.message.value)){
             return false
         } 
         
