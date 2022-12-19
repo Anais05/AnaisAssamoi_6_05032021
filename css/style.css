@@ -209,6 +209,7 @@
 #galery .medium {
   border: none;
   padding: unset;
+  width: 100%;
 }
 #galery .media-card {
   width: 100%;
